@@ -54,6 +54,8 @@ function askSomeone(someone: Developer | Person) {
   - 하지만, typeScript는 이것을 `교집합`으로 받아들이며, 위 예시의 경우에는 `name`만 사용할 수 있고, `skill`과 `age`는 Error가 발생함.
   - 즉, 공통된 속성만 접근할 수 있음
 
+<br>
+
 ---
 
 <br>
@@ -93,6 +95,8 @@ askSomeone({name: "캡틴", age: 31}); // skill에 대한 속성도 필요하다
   - askSomeone 함수에 Developer & Person으로 묶어줬을 때 일반적 사고로는 교집합이라고 생각이 들지만, 여기선 합집합으로 인식 함
   - 호출을 할 때도 `askSomeone({name: xxx, skill: xxx, age: 31})`로 했을 때 에러가 뜨지않음
   - 하지만 프로퍼티 하나라도 없을 시 에러가 발생함.
+
+<br>
 
 ---
 
