@@ -42,4 +42,8 @@ getProperty(obj, "z"); // error: "z"는 "a", "b", "c" 속성에 해당하지 않
 
 ### 참고자료
 
-https://joshua1988.github.io/ts/
+https://joshua1988.github.io/ts/  
+강의내용
+
+https://www.typescriptlang.org/docs/handbook/2/keyof-types.html  
+공식문서
