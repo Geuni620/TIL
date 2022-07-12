@@ -28,7 +28,7 @@ logMessage(100);
 
 <br>
 
-### 유니온 타입 주의할 점
+## 유니온 타입 주의할 점
 
 ```TS
 interface Developer {
@@ -60,7 +60,7 @@ function askSomeone(someone: Developer | Person) {
 
 <br>
 
-### 인터섹션 타입
+## 인터섹션 타입
 
 ```TS
 interface Developer {

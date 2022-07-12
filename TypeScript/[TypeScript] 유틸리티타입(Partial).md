@@ -1,6 +1,6 @@
 # TypeScript
 
-### Partial
+## Partial
 
 > interface를 하나 선언해놓고, interface안에 타입들을 옵셔널로 사용하고 싶은 경우 Partial을 사용해보기
 
@@ -25,7 +25,7 @@ function upDateProductItem(productItem: Partial<Product>) {}
 
 <br>
 
-### Partial의 적용과정
+## Partial의 적용과정
 
 1. 재활용해보기
 

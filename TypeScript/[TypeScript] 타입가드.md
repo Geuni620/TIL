@@ -1,6 +1,6 @@
 # TypeScript
 
-### 타입가드
+## 타입가드
 
 문제상황
 
@@ -31,7 +31,7 @@ console.log(tony.skill); // Error 발생
 
 <br>
 
-### 타입단언을 이용해서 skill 뽑아내기
+## 타입단언을 이용해서 skill 뽑아내기
 
 ```TSX
 if (tony as Developer ).skill{
@@ -45,7 +45,7 @@ if (tony as Developer ).skill{
 
 <br>
 
-### 타입가드를 이용해서 skill 뽑아내기
+## 타입가드를 이용해서 skill 뽑아내기
 
 ```TSX
 //타입가드 정의

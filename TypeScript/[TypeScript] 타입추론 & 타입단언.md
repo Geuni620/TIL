@@ -1,6 +1,6 @@
 # TypeScript
 
-### 타입추론
+## 타입추론
 
 ```TSX
 // 타입추론
@@ -32,7 +32,7 @@ var detailedItem: DetailedDropdown<number> = {
 
 <br>
 
-### 객체의 키값이 여러 개일 경우 Type지정
+## 객체의 키값이 여러 개일 경우 Type지정
 
 ```TSX
 interface PhoneNumberDictionary {
@@ -88,7 +88,7 @@ const contacts:Contact[] = [
 
 <br>
 
-### enum 활용
+## enum 활용
 
 ```TSX
 enum PhoneType{
@@ -106,7 +106,7 @@ enum PhoneType{
 
 <br>
 
-### 타입단언
+## 타입단언
 
 > 타입스크립트보다 개발자가 타입을 더 정확히 알고있다는 생각에서 시작.  
 > 개발자가 타입을 명시적으로 선언해주는 방법

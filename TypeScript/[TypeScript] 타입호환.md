@@ -1,8 +1,8 @@
 # TypeScript
 
-### 타입호환
+## 타입호환
 
-**변수**
+### 변수
 
 ```TS
 // 인터페이스
@@ -29,7 +29,7 @@ developer = person; // 호환불가능
 
 <br>
 
-**함수**
+### 함수
 
 ```TS
 var add = function (a: number) {
@@ -50,7 +50,7 @@ add = sum; // 호환불가능
 
 <br>
 
-**제네릭**
+### 제네릭
 
 ```TS
 interface Empty<T> {

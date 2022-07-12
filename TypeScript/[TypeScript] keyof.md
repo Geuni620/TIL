@@ -1,6 +1,6 @@
 # TypeScript
 
-### keyof 사용법
+## keyof 사용법
 
 > 객체의 속성을 제한하는 방법
 

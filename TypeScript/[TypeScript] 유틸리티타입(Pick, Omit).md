@@ -1,8 +1,6 @@
 # TypeScript
 
-## 유틸리티 타입
-
-### Pick
+## 유틸리티 타입 Pick
 
 > 이미 정의해놓은 타입을 변환할 때 사용하기 좋은 타입,
 
@@ -46,7 +44,7 @@ function DeplayProductDetail(
 
 <br>
 
-### Omit
+## 유틸리티 타입 Omit
 
 - 이미 정의되어 있는 타입의 일부만 뽑아내는게 아니라 제외하고 사용해보자
 

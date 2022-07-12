@@ -1,6 +1,6 @@
 # TypeScript
 
-### 맵드타입
+## 맵드타입
 
 ```TSX
 type Heroes = "Hulk" | "Capt" | "Thor";
