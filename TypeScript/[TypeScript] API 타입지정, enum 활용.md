@@ -36,7 +36,7 @@ const {data: confirmedResponse} = await fetchCountryInfo(
 
 <br>
 
-![사이드이펙트에러](../screen//side-effect%20error.png)
+![사이드이펙트에러](../screen/side-effect%20error.png)
 
 - enum을 지정해줬으니 다음과 같이 수정해줌
 
