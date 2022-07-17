@@ -84,6 +84,6 @@ const onClick = () => {
 
 ### 참고자료
 
-https://redux-toolkit.js.org/api/createAsyncThunk
+https://redux-toolkit.js.org/api/createAsyncThunk  
 https://velog.io/@raejoonee/createAsyncThunk  
 unwrap() 사용방법
