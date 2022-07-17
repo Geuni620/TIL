@@ -1,4 +1,4 @@
-# TypeScript & JavaScript
+# TypeScript
 
 > 사이드프로젝트를 진행하며 해결하고, 알게된 점 기록
 
