@@ -87,10 +87,13 @@ interface HTMLParagraphElement extends HTMLElement {
 - 위에서도 언급했듯 HTMLElement는 Element 타입을 상속받아 추가적으로 정의하였음
 - 그리고 HTMLParagraphElement는 HTMLElement를 상속받음
 - 위의 HTMLElement 인터페이스에서 Element를 상속받아 추가적으로 정의한 것들은 위에 호환문제로 발생했던 에러의 캡처본에서 속성이 없다고 뜬 문구의 키워드와 동일한 것을 확인할 수 있었음.
+- 즉 Element에는 accessKey, accessKeyLabel, autocapitalize과 같은 타입이 정의되어 있지 않아서 호환문제가 발생했음
 
 <br>
 
 ### 타입단언으로 해결하기
+
+> Element에는 없는데 더 구체적으로 작성한 타입이 있다면, 이것으로 타입단언해주기
 
 ```TSX
 const deathsTotal = $(".deaths") as HTMLParagraphElement;
