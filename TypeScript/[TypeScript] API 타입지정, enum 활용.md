@@ -9,7 +9,7 @@ enum CovidState {
   Deaths = "deaths",
 }
 
-function fetchCountryInfo(countryCode: string, status: CovidState) {
+function fetchCountryInfo(countryName: string, status: CovidState) {
   // status params: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryName}/status/${status}`;
   return axios.get(url);
