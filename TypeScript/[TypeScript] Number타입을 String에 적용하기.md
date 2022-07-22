@@ -16,7 +16,3 @@ function setTotalConfirmedNumber(data: CovidSummaryResponse) {
 ```
 
 - number로 매겨져있으면 .toString()으로 변경시켜주면 됨.
-
-<br>
-
-## MouseEvent vs const onMaskClick = (e: React.MouseEvent<HTMLElement>) => {
