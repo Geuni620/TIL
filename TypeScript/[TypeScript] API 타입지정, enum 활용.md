@@ -11,8 +11,9 @@ enum CovidState {
 
 function fetchCountryInfo(countryCode: string, status: CovidState) {
   // status params: confirmed, recovered, deaths
-  const url = `https://api.covid19api.com/country/${countryCode}/status/${status.}`;
+  const url = `https://api.covid19api.com/country/${countryName}/status/${status}`;
   return axios.get(url);
+}
 ```
 
 - status로 들어오는 값은 딱 3가지로 규정되어 있었음.
