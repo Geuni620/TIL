@@ -168,7 +168,8 @@ emails.forEach(function (email) {
 
 2. createDropdownItem의 타입을 T로 받고, 이를 DropdownItem<T>로 넘겨줌으로써 유니온을 제거할 수 있었음
 
-- 하지만 여기서 toString의 에러가 발생함.
+- 하지만 여기서 toString의 에러가 발생함.   
+
   ![](/screen/toString%20%EC%97%90%EB%9F%AC.png)
   ```TSX
   function createDropdownItem<T extends {toString: Function}>(
