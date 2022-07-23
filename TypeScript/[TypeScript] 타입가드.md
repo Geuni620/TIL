@@ -67,7 +67,8 @@ if (isDeveloper(tony)) {
 
 <br>
 
-- 타입가드를 사용하면 다음과 같이 ifelse를 이용해서 key값을 사용가능
+- 타입가드를 사용하면 다음과 같이 ifelse를 이용해서 key값을 사용가능   
+
   ![target의 타입이 Developer일 때](/screen/%ED%83%80%EC%9E%85%EC%9D%B4%20Developer.png)
 
   <br>
