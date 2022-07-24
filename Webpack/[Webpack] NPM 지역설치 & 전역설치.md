@@ -12,7 +12,7 @@ npm i jquery
 
 - 설치를 완료하면 프로젝트 폴더안에 `node_modules`라는 폴더가 생기고 그 폴더 아래에 해당 라이브러리 파일들이 설치되어 있음
 
-### NPM 전역설치
+## NPM 전역설치
 
 ```
 // gulp라는 걸 설치해보자
@@ -25,7 +25,7 @@ npm install gulp -g
 - 경로는 mac의 경우 다음과 같음
   - `/usr/local/lib/node_modules`
 
-### 지역설치 옵션 두 가지
+## 지역설치 옵션 두 가지
 
 ```
 // package.json의 dependencies에 등록
@@ -43,7 +43,7 @@ npm i jquery -D
 
 <br>
 
-### 개발용 라이브러리와 배포용 라이브러리 구분하기.
+## 개발용 라이브러리와 배포용 라이브러리 구분하기.
 
 - NPM 지역설치 할 때는 라이브러리가 배포용인지, 개발용인지 꼭 구분할 것!
 - jquery와 같이 **화면 로직과 직접적으로 관련된 라이브러리**는 배포용으로 설치
@@ -54,5 +54,3 @@ npm i jquery -D
     1. webpack : 빌드도구
     2. exlint : 코드 문법 검사 도구
     3. imagemin : 이미지 압축 도구
-
-<br>
