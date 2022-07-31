@@ -8,6 +8,10 @@
 
 해결방법은 `npm update` 해주고 `yarn develop` 실행하니 정상 동작함.
 
+<br>
+
+또는, node_modules와 package.json-lock 삭제 후 `yarn install`
+
 ---
 
 ### 참고자료
