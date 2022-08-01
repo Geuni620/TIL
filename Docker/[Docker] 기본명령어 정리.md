@@ -111,3 +111,5 @@ docker build -t dlrmsgnl620/nodejs ./
 그리고 docker 컨테이너 실행
 docker run -p 1111:8080 dlrmsgnl620/nodejs
 ```
+
+- 5000번은 에러가 났음. 다른 PORT 번호를 사용하라는 에러가 발생
