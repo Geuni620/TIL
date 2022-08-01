@@ -99,3 +99,15 @@ sh부분은 sh bash zsh 등등 있지만, sh가 가장 무난함.
 sh로 컨테이너 내부 터미널로 접근했다가 다시 나오려면 ctrl + c가 안먹힘
 -> ctrl + D로 빠져나올 수 있음.
 ```
+
+<br>
+
+## docker build시 명령어
+
+```
+docker build -t <docker 아이디>/어플리케이션 이름 ./
+docker build -t dlrmsgnl620/nodejs ./
+
+그리고 docker 컨테이너 실행
+docker run -p 1111:8080 dlrmsgnl620/nodejs
+```
