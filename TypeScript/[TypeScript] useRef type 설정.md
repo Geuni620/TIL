@@ -1,6 +1,6 @@
 # TypeScript
 
-> Dropdown bar를 만드는데 useRef의 타입을 정의하고
+> useRef의 타입정의
 
 <br>
 
