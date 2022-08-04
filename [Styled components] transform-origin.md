@@ -48,6 +48,16 @@ const ArrowIcon = styled(IoMdArrowDropdown)<{ menuVisible: boolean }>`
 
 <br>
 
+### Warning
+
+![](./screen/styled%20components%20props%20warning.png)
+
+- 다음과 같은 warning이 뜨는데 원인은 대문자를 사용해서 그런 것 같음.
+- 블로그에 있는 수정사항들을 적용해보려 했는데, 결국 안되어서 삭제.
+- 추후 방법을 알게 되면 다시 적용해보고 싶음
+
+<br>
+
 ### 참고자료
 
 [Dropdown 자바스크립트 없이 만들기](https://surviveasdev.tistory.com/entry/Dropdown-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%97%86%EC%9D%B4-%EB%A7%8C%EB%93%A4%EA%B8%B0React)
