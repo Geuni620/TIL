@@ -67,7 +67,6 @@ root.render(
 
 - persist는 redux를 이용해서 localStoreage 또는 SessionStoreage에 접근할 수 있도록 해주는 라이브러리
 - reducer를 이용하면 Storage에 저장한 값을 업데이트 할 수 있다는 장점이 있음.
-- 즉
 
 <br>
 
