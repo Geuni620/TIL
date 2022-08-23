@@ -43,7 +43,7 @@ const DrowDownbar = ({ filterUserInfo, getKeyWord }: IDrowDownbar) => {
 console.dir(e.target) // e.target 내부에 어떤 key값들이 있는지 확인했음
 ```
 
-![console결과](../screen/console.dir(e.target).png)
+![콘솔창](../screen/%EC%BD%98%EC%86%94%EC%B0%BD.png)
 
 - 사진처럼 innerText로 접근해야한다는 사실을 알게 됨
 
