@@ -1,6 +1,7 @@
 # TypeScript
 
 ## axios 라이브러리 타입 적용
+
 > axios로 불러온 데이터의 타입도 같이 매겨보자.
 
 ```TSX
@@ -28,7 +29,7 @@ function fetchCovidSummary(): Promise<AxiosResponse<CovidSummaryResponse>> {
 
 <br>
 
-![interface매기기](/screen/api%20data%20interface%20%EB%A7%A4%EA%B8%B0%EA%B8%B0.png)
+![interface매기기](</screen/console.dir(e.target).png>)
 
 1. chrome network 창을 열어줌
 2. filter에서 fetch/XHR 클릭
