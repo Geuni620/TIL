@@ -34,13 +34,13 @@ const ArrowIcon = styled(IoMdArrowDropdown)<{ menuVisible: boolean }>`
 
 ### 수정 전
 
-![](./screen/%ED%9A%8C%EC%A0%84%20%EC%A0%84.gif)
+![](../screen/%ED%9A%8C%EC%A0%84%20%EC%A0%84.gif)
 
 <br>
 
 ### 수정 후
 
-![](./screen/%ED%9A%8C%EC%A0%84%20%ED%9B%84.gif)
+![](../screen/%ED%9A%8C%EC%A0%84%20%ED%9B%84.gif)
 
 <br>
 
