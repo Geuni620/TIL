@@ -29,6 +29,8 @@ export default Test;
 - useTransition을 사용하면 일부 상태 업데이트를 긴급한 것, 긴급하지 않은 것으로 표시할 수 있음
 - 즉 상태 업데이트를 긴급한 것, 긴급하지 않은 것으로 나누어 개발자에게 렌더링 성능을 튜닝하는데 많은 자유를 주었다고 볼 수 있음.
 
+<br>
+
 - useTransition은 두 가지 변수(`isPending`, `startTransition`)를 사용할 수 있게 해줌
 - `startTransition`로 성능저하를 일으키는 요소를 감싸줌 (감싸준 부분은 긴급하지 않은 것으로 간주하여, 코드 시작을 뒤로 늦춰줌.)
 
@@ -65,7 +67,7 @@ const Test = () => {
 ### 2. useDeferredValue
 
 - useDefferedValue안에 넣은 state는 늦게 처리가 되도록 해줌.
-- useTrnasiton과 useDefferedValue는 비슷한 기능을 수행함.
+- useTransition과 useDefferedValue는 비슷한 기능을 수행함.
 
 ```JSX
 import React, { useState, useDeferredValue } from 'react';
@@ -96,6 +98,8 @@ const Test = () => {
 - useTranstion은 상태 제어가 가능할 때 사용하기, props에서 값에만 접근이 가능한 경우엔 useDefferedValue를 사용하면 좋을 것 같음
   - 해당내용은 [이 블로그 글](https://yrnana.dev/post/2022-04-12-react-18)을 인용했음
   - [이 영상](https://youtu.be/lDukIAymutM)에서도 똑같이 말함.
+
+<br>
 
 ### 참고자료
 
