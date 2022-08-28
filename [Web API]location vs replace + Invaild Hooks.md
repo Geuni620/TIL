@@ -21,23 +21,27 @@
   - 기존에는 **a 태그를 이용해서 해당 URL로 이동시켰고, 이동시킨 곳에 router를 걸어서 해당 컴포넌트가 실행되도록 구현되어 있었음**
   - 그 컴포넌트는 다음과 같이 작성되어 있음
 
-  ```TSX
-  const GoogleLogin = () => {
-  const code = new URL(window.location.href).searchParams.get('code');
-  console.log(code);
-  const navigate = useNavigate();
+<br>
 
-  useEffect(() => {
-    const option: { url: string } = {
-      url: `url?code=${code}`,
-    };
-    axios(option.url).then((res) => {
-      console.log(res);
-      // localstorage 내용
-    });
-  }, [code]);
+```JSX
+const GoogleLogin = () => {
+const code = new URL(window.location.href).searchParams.get('code');
+console.log(code);
+const navigate = useNavigate();
+
+useEffect(() => {
+  const option: { url: string } = {
+    url: `url?code=${code}`,
   };
-  ```
+  axios(option.url).then((res) => {
+    console.log(res);
+    // localstorage 내용
+  });
+}, [code]);
+};
+```
+
+<br>
 
 ### window.location.href VS window.location.replace
 
@@ -50,12 +54,14 @@
     - 이때 3번으로 이동했다가 뒤로가기를 누르면 2번이 열림.
     - 하지만 2번의 내용이 중요한 정보를 담고 있다고 가정했을 때 2번이 열리지 않도록 해야함 → 이때 `replace()`를 사용하면 2번이 열리지 않음
 
+<br>
+
 ### Click event + window.location.replace를 사용 + qs
 
 - 큰틀에서 로직은 똑같지만 qs라이브러리를 써보고 싶었고, button으로 click event를 주고 싶었음
 - 따라서 다음과 같이 구현함
 
-```TSX
+```JSX
 const queryStr = qs.stringify({
   client_id: CLIENT_ID,
   redirect_uri: REDIRECT_URL,
@@ -101,21 +107,21 @@ Uncaught Error: Invalid hook call. Hooks can only be called inside of the body o
 
     - 혼란을 주지 않기 위해 다른 경우에는 Hooks를 호출하는 것이 지원되지 않습니다.
 
-      🔴 클래스 컴포넌트에서 Hooks를 호출하지 마세요.  
-      🔴 이벤트 핸들러에서 호출하지 마세요.  
-      🔴 useMemo, useReducer 또는 useEffect에 전달 된 함수 내에서 Hooks를 호출하지 마세요.
+      - 클래스 컴포넌트에서 Hooks를 호출하지 마세요.
+      - 이벤트 핸들러에서 호출하지 마세요.
+      - useMemo, useReducer 또는 useEffect에 전달 된 함수 내에서 Hooks를 호출하지 마세요.
 
     - **여기서 나는 세 번째를 지키기 않음**
       <br>
       Login.tsx
 
-    ```TSX
+    ```JSX
       useEffect(() => {
         AuthCodeLoginPage();
       }, []);
     ```
 
-    ```TSX
+    ```JSX
     const AuthCodeLoginPage = () => {
       const navigate = useNavigate();
     }
