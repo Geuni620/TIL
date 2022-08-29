@@ -8,7 +8,7 @@
 
 ## useSelector
 
-```TSX
+```JSX
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'redux/store';
 
@@ -38,7 +38,7 @@ const loginStep = useSelector((state: RootState) => state.login.currentStep);
 - 코드상으로도 간결해보이지도 않았음
 - 그래서 useRootState라는 custom hooks을 적용해봄
 
-```TSX
+```JSX
 // hooks/useRootstate.tsx
 import { RootState } from 'redux/store';
 import { useSelector } from 'react-redux';
@@ -96,7 +96,7 @@ const loginStep = useRootState((state) => state.login.currentStep);
 > 같은 팀원분이 대댓글로 남겨준 글을 보고 참고함.  
 > 이렇게 하는건 어떠냐고 대댓글을 남겨주심. 🙏
 
-```TSX
+```JSX
 export function useLogin() {
   const loginStep = useSelector((state: RootState) => state.login.currentStep);
   const imageUrl = useSelector((state: RootState) => state.login.imageUrl);
@@ -110,6 +110,53 @@ export function useLogin() {
 // custom hook 사용할 때
 const {loginStep } = useLogin();
 ```
+
+<br>
+
+**220829**
+
+> [Redux vs MobX](https://www.inflearn.com/course/redux-mobx-%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC-%EB%8F%84%EA%B5%AC/dashboard)에서 키워드를 얻게 됨.
+
+<br>
+
+```JSX
+// loginSlice.ts
+const initialState = {
+  currentStep: 1,
+  id: undefined,
+  imageUrl: undefined,
+  modalVisible: false,
+};
+
+
+// LoginModal.tsx
+// #1
+const loginStep = useSelector((state: RootState) => state.login.currentStep);
+const modalVisible = useSelector((state: RootState) => state.login.modalVisible);
+
+// #2
+const {loginStep, modalVisible} = useSelector((state: RootState) => state.login);
+```
+
+- #1의 경우 redux store에서 하나씩 값을 가져온 형태이고, #2는 구조분해 할당을 통해서 값을 가져온 형태임
+- useSelector는 언제 함수컴포넌트(지금의 경우 LoginModal.tsx)를 언제 재렌더링 시키는가?
+
+  - #1의 loginStep의 경우 state.login.currentStep이 변경되었을 때 함수컴포넌트 재 렌더링
+  - #2의 {loginStep, modalVisible}의 경우 state.login이 변경되었을 때 함수컴포넌트 재 렌더링
+
+<br>
+
+- 그럼 login 또는 login.currentStep, login.modalVisible은 언제 바뀌는가?
+  - loginSlice.ts에 있는 initialState가 변경되었을 때 해당하는 값들이 바뀌게 됨.
+- 즉 login.currentStep가 변경되면 initialState에 있는 currentStep과 비교하여 재 렌더링을 함
+- 하지만, login이 변경되면 initialState에 어떤 값과 비교되든 상관없이 재렌더링이 되고, 그로인해 loginStep, modalVisible가 변경되지 않았더라도 구조분해할당으로 값을 가져왔을 땐 재렌더링됨
+
+  - 상태가 바뀌었는지 바뀌지 않았는지 확인할 방법이 없기때문.
+
+- 즉 프로젝트를 진행하며 useSelector으로 #2와 같이 불러온다면 loginStep이 변경되지 않았더라도, login이 변경된다면 loginStep이 재렌더링되고, 해당 함수컴포넌트가 재렌더링 되어버림.
+- 이를 막기 위해 `shallowEqual`를 useSelector의 두 번째 인자로 넣어주어야 함.
+
+- 단 성능적으로 크게 문제가 발생하지 않는다고 판단이 되면 구조분해할당으로 값을 가져와도 무방함.
 
 <br>
 
