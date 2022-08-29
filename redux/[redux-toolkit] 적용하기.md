@@ -142,10 +142,6 @@ const userSlice = createSlice({
 
 ### action
 
-- action은 따로 다시 만들필요 없음.
-  - 이젠 slice가 알아서 만들어줌
-  - 더이상 action을 따로 관리할 필요가 없음
-
 ```JSX
 // App.js
 const userSlice = require("./reducers/user");
@@ -160,12 +156,11 @@ const onLogout = useCallback(() => {
   }, []);
 ```
 
-<br>
+- action은 따로 다시 만들필요 없음.
+  - 이젠 slice가 알아서 만들어줌
+  - 더이상 action을 따로 관리할 필요가 없음
 
-- redux에서는 action에 동기, 비동기 모두 함께 사용했음
-- toolkit에선 slice안에 동기적인 관리 모두 들어있음
-- 비동기처리는 action에서 관리
-  - 즉, `toolkit의 action은 비동기적인 관리를 하는 곳`
+<br>
 
 ```JSX
 // action/user.js
@@ -194,6 +189,11 @@ const login = createAsyncThunk("user/login", async (data, thunkAPI) => {
   return result;
 });
 ```
+
+- redux에서는 action에 동기, 비동기 모두 함께 사용했음
+- toolkit에선 slice안에 동기적인 관리 모두 들어있음
+- 비동기처리는 action에서 관리
+  - 즉, `toolkit의 action은 비동기적인 관리를 하는 곳`
 
 <br>
 
@@ -233,12 +233,13 @@ const userSlice = createSlice({
 ```
 
 - action에 대한 data는 action.payload에 담겨있음.
-- 현재 action.payload에 담기는 데이터는 `actions/user.js`
-- result 안에 들어있는 데이터가 됨.
+- 현재 action.payload에 담기는 데이터는 `actions/user.js` 안에 들어있는 데이터가 됨.
 
 <br>
 
 ```JSX
+// actions/user.js
+
 const login = createAsyncThunk("user/login", async (data, thunkAPI) => {
   // App.js의 login에 지정해준 data를 담아서 서버로 보냄
   console.log(data);
@@ -248,6 +249,7 @@ const login = createAsyncThunk("user/login", async (data, thunkAPI) => {
   // 여기에 비동기요청을 하면 됨
   const result = await delay(500, {
     // 서버의 응답을 여기에 담아주면 되는데, 우리는 서버없어서 mocking했음
+    // action.payload에 담기는 데이터들.
     userId: 1,
     nickName: "KeunHwee",
   });
