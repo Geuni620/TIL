@@ -2,49 +2,78 @@
 
 > redux는 상태관리할 때 사용하는 라이브러리
 
-### configureStore
+<br>
+
+## configureStore
+
+<br>
+
+### redux
 
 ```JSX
-const {configureStore} = require("@reduxjs/toolkit");
+const {createStore, applyMiddleware, compose} = require("redux");
+const {composeWithDevTools} = require("redux-devtools-extension");
+const reducer = require("./reducers");
 
-// 기존에는
-const store = createStore(reducer, initialState, enhancer);
+const initialState = {
+  user: {
+    isLoggingIn: false,
+    data: null,
+  },
+  posts: [],
+};
 
-// toolkit
-const store = configureStore({
-  reducer: {
+const firstMiddleware = (store) => (dispatch) => (action) => {
+  console.log("로깅", action);
+  dispatch(action);
+};
+
+const thunkMiddleware = (store) => (dispatch) => (action) => {
+  if (typeof action === "function") {
+    // 비동기
+    return action(store.dispatch, store.getState());
   }
-})
+  return dispatch(action);
+};
+
+const enhancer =
+  process.env.NODE_ENV === "production"
+    ? compose(applyMiddleware(firstMiddleware, thunkMiddleware))
+    : composeWithDevTools(applyMiddleware(firstMiddleware, thunkMiddleware));
+
+const store = createStore(reducer, initialState, enhancer);
 ```
 
 <br>
 
-```JSX
-// 만약 custom middleware를 장착하고 싶다면
-const {configureStore, getDefaultMiddleware} = require("@reduxjs/toolkit");
+### redux-toolkit
 
-const firstMiddleware = (state) => (dispatch) => (action) => {
-dispatch(action);
+```JSX
+const {configureStore, getDefaultMiddleware} = require("@reduxjs/toolkit");
+const reducer = require("./reducers");
+
+const firstMiddleware = (store) => (dispatch) => (action) => {
+  console.log("로깅", action);
+  dispatch(action);
 };
 
 const store = configureStore({
-reducer,
-middleware: [firstMiddleware, ...getDefaultMiddleware()],
-devTools:
+  reducer,
+  middleware: [firstMiddleware, ...getDefaultMiddleware()],
+  devTools: process.env.NODE_ENV !== "production",
 });
-
 ```
 
-- firstMiddleware만 넣으면 기존에 가지고 있던 thunkmiddleware는 제외됨
+- firstMiddleware만 넣으면 기존에 가지고 있던 thunkmiddleware 이런건 제외됨
 - 그래서 `...getDefaultMiddleware()`를 import 시키고 추가
 
 <br>
 
-### createSlice
+## createSlice
 
 <br>
 
-**기존**
+### redux
 
 ```JSX
 // reducers/index.js
@@ -61,7 +90,7 @@ module.exports = combineReducers({
 
 <br>
 
-**toolkit**
+### redux-toolkit
 
 ```JSX
 // reducers/index.js
@@ -76,7 +105,8 @@ module.exports = combineReducers({
 ```
 
 - slice는 다양한 것을 다 합쳐놓은 개념
-  - reducer도 있고, action도 있음.
+- reducer도 있고, action도 있음.
+- 그래서 conbineReducers는 [createStore에 넘길 수 있는 하나의 reducer 함수로 바꿔주는 기능](https://redux.js.org/api/combinereducers)을 하니, slice안에 있는 reducer를 지정해주어야 함.
 
 <br>
 
@@ -109,12 +139,12 @@ const userSlice = createSlice({
 ```
 
 - reducers과 extraReducers가 있는데 둘의 차이는 다음과 같음
-  - reducers : 동기적, 내부적
+  - reducers: 동기적, 내부적
   - extraReducers: 비동기적, 외부적
 
 <br>
 
-**action**
+### action
 
 - action은 따로 다시 만들필요 없음.
   - 이젠 slice가 알아서 만들어줌
@@ -136,10 +166,10 @@ const onLogout = useCallback(() => {
 
 <br>
 
-- 기존에는 action에 동기, 비동기 모두 함께 사용했음
+- redux에서는 action에 동기, 비동기 모두 함께 사용했음
 - toolkit에선 slice안에 동기적인 관리 모두 들어있음
 - 비동기처리는 action에서 관리
-  - 즉 action은 비동기적인 관리를 하는 곳
+  - 즉, `toolkit의 action은 비동기적인 관리를 하는 곳`
 
 ```JSX
 // action/user.js
@@ -159,6 +189,7 @@ const delay = (time, value) =>
 const login = createAsyncThunk("user/login", async (data, thunkAPI) => {
   // const state = thunkAPI.getState(); // 현재 reducer의 state를 가져올 수 있음.
   // console.log(state.user.data);
+
   // 여기에 비동기요청을 하면 됨
   const result = await delay(500, {
     userId: 1,
@@ -170,7 +201,7 @@ const login = createAsyncThunk("user/login", async (data, thunkAPI) => {
 
 <br>
 
-**pending, fulfilled, rejected**
+### pending, fulfilled, rejected
 
 ```JSX
 
@@ -205,11 +236,11 @@ const userSlice = createSlice({
 
 ```
 
-<br>
-
 - action에 대한 data는 action.payload에 담겨있음.
 - 현재 action.payload에 담기는 데이터는 `actions/user.js`
 - result 안에 들어있는 데이터가 됨.
+
+<br>
 
 ```JSX
 const login = createAsyncThunk("user/login", async (data, thunkAPI) => {
