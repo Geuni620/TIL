@@ -235,6 +235,8 @@ const userSlice = createSlice({
 - createAsyncThunk를 정의할 때 가장 첫 번째 인자로 `user/login`과 같은 action 이름을 정해주었음.
   - 이것은 extraReducers에 pending, fulfilled, rejected에서 이름으로 사용되었음.
   - 즉, user/login/pending, user/login/fulfilled, user/login/rejected와 같이 사용됨
+  - redux-devtool에서 확인 가능.
+    ![pending/fulfilled/rejected](../screen/pending%3Afulfilled%3Arejected.png)
 
 ```JSX
 // actions/user.js
