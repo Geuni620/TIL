@@ -36,7 +36,7 @@ export type AppDispatch = typeof store.dispatch;
 
 <br>
 
-```TSX
+```JSX
 //reducers/userSlice
 
 import { createSlice } from '@reduxjs/toolkit';
@@ -70,7 +70,7 @@ export default loginSlice;
 
 <br>
 
-```TSX
+```JSX
 // actions/login.ts
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -96,7 +96,7 @@ export default logIn;
 
 <br>
 
-```TSX
+```JSX
 // Login/Login.tsx
 import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
