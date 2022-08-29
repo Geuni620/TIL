@@ -113,7 +113,7 @@ const {loginStep } = useLogin();
 
 <br>
 
-**220829**
+### useSelector의 재렌더링
 
 > [Redux vs MobX](https://www.inflearn.com/course/redux-mobx-%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC-%EB%8F%84%EA%B5%AC/dashboard)에서 키워드를 얻게 됨.
 
@@ -146,10 +146,10 @@ const {loginStep, modalVisible} = useSelector((state: RootState) => state.login)
 
 <br>
 
-- 그럼 login 또는 login.currentStep, login.modalVisible은 언제 바뀌는가?
-  - loginSlice.ts에 있는 initialState가 변경되었을 때 해당하는 값들이 바뀌게 됨.
+- 그럼 login 또는 login.currentStep, login.modalVisible은 언제 변경되는가?
+  - loginSlice.ts의 initialState가 변경되었을 때 해당하는 값도 변경 됨.
 - 즉 login.currentStep가 변경되면 initialState에 있는 currentStep과 비교하여 재 렌더링을 함
-- 하지만, login이 변경되면 initialState에 어떤 값과 비교되든 상관없이 재렌더링이 되고, 그로인해 loginStep, modalVisible가 변경되지 않았더라도 구조분해할당으로 값을 가져왔을 땐 재렌더링됨
+- 하지만, login이 변경되면 initialState가 재렌더링이 되고, 그로인해 loginStep, modalVisible가 변경되지 않았더라도 구조분해할당으로 값을 가져왔을 땐 재렌더링 됨
 
   - 상태가 바뀌었는지 바뀌지 않았는지 확인할 방법이 없기때문.
 
