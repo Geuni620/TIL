@@ -2,7 +2,7 @@
 
 ## Redux toolkit 비동기 처리방법
 
-```TSX
+```JSX
 // loginSlice.ts
 const loginSlice = createSlice({
   name: 'LoginStep',
@@ -59,13 +59,13 @@ const result2 = await dispatch(loginAsync()).unwrap();
 - console.log()를 찍어보면 결과값이 동일하게 출력되는 것을 알 수 있음
 - 콜백으로 분기처리가 필요하다면 이렇게도 사용해볼 수 있음
 
-```TSX
+```JSX
 const result2 = await dispatch(loginAsync()).unwrap().then((res) => console.log(res));
 ```
 
 - 좋은 방식인지 잘 모르겠지만, 콜백으로 결괏값을 핸드링 할 수 있음
 
-```TSX
+```JSX
 const onClick = () => {
   dispatch(fetchUserById(userId))
     .unwrap()
