@@ -166,8 +166,6 @@ const onLogout = useCallback(() => {
 // action/user.js
 const {createAsyncThunk} = require("@reduxjs/toolkit");
 
-const login = createAsyncThunk("user/login");
-
 // 서버가 없음, 비동기처리 구현하기 위해 delay함수 추가
 const delay = (time, value) =>
   new Promise((resolve, reject) => {
@@ -217,14 +215,14 @@ const userSlice = createSlice({
   },
   extraReducers: {
     // 비동기적 or 외부적()
-    [login.pendgin](state, action) {
+    [login.pending](state, action) { // user/login/pending
       state.isLoggingIn = true;
     },
-    [login.fulfilled](state, action) {
+    [login.fulfilled](state, action) { // user/login/fulfilled
       state.data = action.payload;
       state.isLoggingIn = false;
     },
-    [login.rejected](state, action) {
+    [login.rejected](state, action) { // // user/login/rejected
       state.isLoggingIn = true;
     },
   },
@@ -234,6 +232,9 @@ const userSlice = createSlice({
 
 - action에 대한 data는 action.payload에 담겨있음.
 - 현재 action.payload에 담기는 데이터는 `actions/user.js` 안에 들어있는 데이터가 됨.
+- createAsyncThunk를 정의할 때 가장 첫 번째 인자로 `user/login`과 같은 action 이름을 정해주었음.
+  - 이것은 extraReducers에 pending, fulfilled, rejected에서 이름으로 사용되었음.
+  - 즉, user/login/pending, user/login/fulfilled, user/login/rejected와 같이 사용됨
 
 ```JSX
 // actions/user.js
