@@ -235,20 +235,10 @@ const userSlice = createSlice({
 - action에 대한 data는 action.payload에 담겨있음.
 - 현재 action.payload에 담기는 데이터는 `actions/user.js` 안에 들어있는 데이터가 됨.
 
-<br>
-
 ```JSX
 // actions/user.js
-
 const login = createAsyncThunk("user/login", async (data, thunkAPI) => {
-  // App.js의 login에 지정해준 data를 담아서 서버로 보냄
-  console.log(data);
-
-  // const state = thunkAPI.getState(); // 현재 reducer의 state를 가져올 수 있음.
-  // console.log(state.user.data);
-  // 여기에 비동기요청을 하면 됨
   const result = await delay(500, {
-    // 서버의 응답을 여기에 담아주면 되는데, 우리는 서버없어서 mocking했음
     // action.payload에 담기는 데이터들.
     userId: 1,
     nickName: "KeunHwee",
