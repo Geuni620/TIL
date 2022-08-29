@@ -6,8 +6,6 @@
 
 ## configureStore
 
-<br>
-
 ### redux
 
 ```JSX
@@ -70,8 +68,6 @@ const store = configureStore({
 <br>
 
 ## createSlice
-
-<br>
 
 ### redux
 
