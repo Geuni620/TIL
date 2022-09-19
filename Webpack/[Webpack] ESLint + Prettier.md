@@ -152,6 +152,7 @@
 }
 ```
 
+- 위 처럼 설정하면 `eslint:recommended` 설정 중에서 prettier과 겹치는 설정이 있으면 알아서 `eslint-config-prettier`이 꺼줌.
 - eslint-config-prettier를 extends에 추가하면 lint와 prettier 충돌시, ESLint 규칙을 비활성화 함.
 - 즉, prettier 우선.
 
@@ -177,6 +178,20 @@
 
 - 프리티어의 모든 규칙을 ESLint 규칙으로 가져온 설정.
 - 이제 ESLint 실행만으로 프리티어 포메팅 기능을 가져올 수 있음.
+
+### 두 개의 플러그인을 한번에 설정하고 싶다면,
+
+> 두 plugins를 설치한 상태여야함 (`eslint-config-prettier`, `eslint-plugin-prettier`)
+
+```JS
+// .eslintrc.js
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ]
+}
+```
 
 ### 참고자료
 
