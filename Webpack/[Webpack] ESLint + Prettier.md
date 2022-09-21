@@ -195,8 +195,8 @@
 
 ### 참고자료
 
-[ESLint로 소스 코드의 문제 찾기](https://www.daleseo.com/js-eslint/)
-[ESLint 상세 설정 가이드](https://www.daleseo.com/eslint-config/)
+[ESLint로 소스 코드의 문제 찾기](https://www.daleseo.com/js-eslint/)  
+[ESLint 상세 설정 가이드](https://www.daleseo.com/eslint-config/)  
 [Prettier로 코딩 스타일 통일하기](https://www.daleseo.com/js-prettier/)
 
 <br>
