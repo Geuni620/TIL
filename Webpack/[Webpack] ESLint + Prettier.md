@@ -190,8 +190,114 @@
     "eslint:recommended",
     "plugin:prettier/recommended"
   ]
+```
+
+<br>
+
+## 적용하기
+
+> 업무 프로젝트에 적용해봄
+
+```JSON
+// eslintrc.json
+{
+  "env": {
+    // node: true 추가, node 환경에서 문법 에러안뜨도록 설정, require, module.exports 등
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+
+  // plugin:prettier/recommended 추가
+  // eslint과 prettier 설정 충돌 시 eslint 설정 알아서 꺼짐
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+  "rules": {
+    // ..
+    // ..
+  },
+  "settings": {}
 }
 ```
+
+<br>
+
+```JSON
+// .prettier
+{
+  "tabWidth": 2,  // 탭간격
+  "useTabs": false,  // 탭 사용 여부
+  "printWidth": 140, // 줄 바꿈 할 폭 길이 -> 80 으로 변경
+  "singleQuote": true // '' or ""
+}
+
+// 추가
+{
+  "singleQuote": true, // single 쿼테이션 사용 여부, 문자열 사용시 '를 사용
+  "semi": true,     // 마지막에 ;(세미콜론) 여부
+  "arrowParens": "always", // 화살표 함수 괄호 사용 방식
+  "trailingComma": "all",  // 여러 줄을 사용할 때, 후행 콤마 사용 방식, object의 마지막 요소 ',' 여부
+  "bracketSpacing": true, // 객체 리터럴에서 괄호에 공백 삽입 여부 { foo : 'bar' }
+  "jsxBracketSameLine": false, // JSX의 마지막 `>`를 다음 줄로 내릴지 여부
+  "quoteProps": "as-needed" // 필요에 따라 객체 key값에 'a-a-a'와 같이 앞 뒤 콤마 붙여줌.
+}
+```
+
+- package.json의 script를 다음과 같이 설정해줌.
+
+```JSON
+"scripts": {
+  // ...
+  "lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'"
+  // ...
+},
+```
+
+`npm run lint` 입력 시 src를 기준으로 해당 파일들 모두 eslint 설정으로 변경.
+
+<br>
+
+- [이 블로그](https://cresumerjang.github.io/2022/05/03/eslint-prettier-2/)에서 npm run lint 설정하는 방법을 확인했음.
+
+```JSON
+{
+  "scripts": {
+    "check-conflict-formatting-rules": "npx eslint-config-prettier './src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
+    "prettier:fix": "prettier --write './src/**/*.{js,jsx,ts,tsx}'",
+    "integrated-code-manager": "npm run check-conflict-formatting-rules && npm run prettier:fix && npm run lint:fix"
+  }
+}
+```
+
+- 여기서 순차적으로 적용했는데, check-conflict-rules를 확인한 결과 두 개의 요소가 eslint & prettier에서 중복되게 검증하고 있었음.
+- 사실 큰 문제는 없었음.
+  - 왜냐하면 위에서 언급했듯 extends에서 `plugin:prettier/recommended`가 eslint와 prettier이 충돌 시 eslint의 설정이 알아서 false 됨.
+- 그래도 충돌나는 부분은 eslint.json의 rules에서 제거해주었음
+  - 즉, prettier 설정으로 맞추어짐.
+- 아래서 lint:fix를 검증하고, prettier를 검증은 제외했음.
+  - 최종적으론 `npm run lint:fix`만으로 eslint와 prettier이 모두 잘 적용되었음.
+
+<br>
+
+### Extension 확인
+
+- npm run lint를 매번 적용하기보단, 저장할 때마다 eslint가 알아서 포맷팅 해주고, commit 전에 `npm run lint`로 다시 한번 warning과 error를 확인하는 것이 좋다고 생각했음
+
+* `ctrl + ,` 누르면 창이 하나 뜨는데 `format on save`설정을 on 해주기
+  - on하면 prettier이 포맷팅을 잡아줌.
+* `ctrl + shift + p` 눌러서 `setting.json` 입력
+
+```JSON
+// 추가 되어 있는지 확인.
+// true 설정 시 저장 누를 때마다 eslint 설정이 먹힘.
+// eslint extension 설치되어있다면, true되어있고, eslint.json파일 있으면 json파일이 우선권을 가짐.
+
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+}
+```
+
+### rules 적용
 
 ### 참고자료
 
@@ -206,3 +312,9 @@
 <br>
 
 [타입스크립트 프로젝트 환경 구성](https://github.com/joshua1988/learn-typescript/tree/master/setup)
+
+<br>
+
+[ESLint 의 포맷팅 규칙 off 하기](https://cresumerjang.github.io/2022/05/03/eslint-prettier-2/)
+
+- npm run lint 적용 참고.
