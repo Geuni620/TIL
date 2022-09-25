@@ -15,7 +15,7 @@ const onLogin = e => {
 </li>
 ```
 
-![target 차이점 비교](./screen/target%20vs%20currentTarget.png)
+![target 차이점 비교](../screen/target%20vs%20currentTarget.png)
 
 - e.target은 **자식 요소**인 span을 리턴
 - e.currentTarget은 **부모 요소**인 button을 반환
