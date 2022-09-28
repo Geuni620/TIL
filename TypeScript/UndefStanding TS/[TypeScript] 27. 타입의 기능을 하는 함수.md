@@ -77,6 +77,6 @@ console.log(conbineValues(8, 8));
 
 <br>
 
-![Type Error](../screen/typescript%20error.png)
+![Type Error](../../screen/typescript%20error.png)
 
 - 다음과 같은 타입에러가 뜸
