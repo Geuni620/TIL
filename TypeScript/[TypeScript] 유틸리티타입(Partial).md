@@ -63,7 +63,7 @@ type UserProfileUpdate = {
 // 이게 Mapped Type이라고 함(공식문서) )
 ```
 
-3. keysfo 적용
+3. keysof 적용
 
 ```TSX
 type UserProfileKeys = keyof UserProfile;
