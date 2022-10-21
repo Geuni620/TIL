@@ -63,14 +63,14 @@ type UserProfileUpdate = {
 // 이게 Mapped Type이라고 함(공식문서) )
 ```
 
-3. keysof 적용
+3. keyof 적용
 
 ```TSX
 type UserProfileKeys = keyof UserProfile;
 // UserProfileKeys = username, email, profilePhotourl
 
 
-// 2번을 keysof을 이용해서 한번 더 축약함.
+// 2번을 keyof을 이용해서 한번 더 축약함.
 type UserProfileUpdate = {
   [p in keyof UserProfile]?: UserProfile[p];
 };
