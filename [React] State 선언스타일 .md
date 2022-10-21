@@ -60,37 +60,44 @@ const App = () => {
 
 <br>
 
-### Deep Dive 책에서 본 예시
+### Deep Dive 책을 참고해서 개념 다시 잡기
 
-- Deep Dive 책에는 다음과 같이 적혀있음
+> DeepDive에는 다음과 같은 내용이 있음
+> 이터러블인 배열을 펼쳐서 요소들을 개별적인 값들의 목록 1 2 3으로 만듦  
+>  → 이 때 1 2 3은 값이 아니라 값들의 목록이다.
 
 ```JS
+// 객체 복사
 let objA = {
   name: "Keun",
   age: 31,
 };
 
-// let objB = {...objA}; // false
-let objB = objA; // true
+let objB = objA;
 
-let objC = {
-  name: "Keun",
-  age: 31,
-};
+console.log(objA === objB); // true
 
-let ObjD = {
-  name: "Keun",
-  age: 31,
-};
+objB.name = "Lee";
 
-console.log(objA === objB); // false
-console.log(objA.age === objB.age); // true
-console.log(objC === ObjD); // false
+console.log(objA === objB); // true
+console.log(objA, objB); // { name: 'Lee', age: 31 } { name: 'Lee', age: 31 }
 
-let a = "Keun";
-let b = a;
+// ----------------
 
-console.log(a === b); // true
+let objC = {...objA};
+
+console.log(objA === objC); // false
+
+objC.name = "Keun";
+
+console.log(objA === objC); // false
+console.log(objA, objC); // { name: 'Lee', age: 31 } { name: 'Keun', age: 31 }
+
+/*
+Deep Dive 35장 스프레드
+스프레드 문법의 결과는 값이 아님
+스프레드 문법의 결과는 값들의 목록
+*/
 ```
 
 <br>
@@ -104,10 +111,13 @@ console.log(a === b); // true
   - 그래서 이 값들의 목록을 배열 또는 객체에 담아서 리턴하는 것
 - 그렇기 때문에 위에서 깊은 복사 효과가 났던 것 같음.
 - 즉 값들의 목록을 얕은 복사로 복사해서 새로운 배열 또는 객체에 담아서 리턴하는 것.
+  → `그럼 1depths 는 깊은 복사로 이해해도 되지 않을까?`
 
 <br>
 
 ### 다시 불변성 관점
+
+> 위에 값들의 목록이 복사되어서 새로운 배열, 또는 객체에 할당되었다면(깊은복사처럼 구현) 불변성 유지가 가능.
 
 - 불변성 관점에서 스프레드 문법으로 복사한 것이 새롭게 생성된 객체 또는 배열이기 때문에, 불변성이 유지될 수 있었던 것.
 
