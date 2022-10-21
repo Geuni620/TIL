@@ -122,3 +122,66 @@ Deep Dive 35장 스프레드
 - 불변성 관점에서 스프레드 문법으로 복사한 것이 새롭게 생성된 객체 또는 배열이기 때문에, 불변성이 유지될 수 있었던 것.
 
 <br>
+
+### 추가내용
+
+```JS
+// ----------------
+
+let objD = {
+  name: {
+    first: "Lee",
+    last: "KeunHwee",
+  },
+  age: 31,
+};
+
+let objE = objD;
+
+console.log(objD === objE); // true
+
+objE.name.first = "Kim";
+
+console.log(objD === objE); // true
+console.log(objD, objE); // { name: { first: 'Kim', last: 'KeunHwee' }, age: 31 } { name: { first: 'Kim', last: 'KeunHwee' }, age: 31 }
+
+// ----------------
+
+let objF = {...objD};
+
+console.log(objF, objD);
+console.log(objF === objD); // false
+
+objF.name.first = "Keun";
+
+console.log(objF === objD); // false
+console.log(objF, objD); // { name: { first: 'Keun', last: 'KeunHwee' }, age: 31 } { name: { first: 'Keun', last: 'KeunHwee' }, age: 31 }
+console.log(objF.name === objD.name); // true
+
+// console.log(objF === objD); // false
+// console.log(objF, objD); // { name: { first: 'Lee', last: 'KeunHwee' }, age: 31 } { name: { first: 'Lee', last: 'KeunHwee' }, age: 31 }
+```
+
+- 그럼 이걸 보면 1depths 이상으로 스프레드 문법으로 복사했을 때 deep copy 되지 않는 것을 확인할 수 있음
+- 즉, deep copy는 depths가 얼만큼 있건 모든 것을 재귀적으로 다 복사하는 것.
+- 그래서 스프레드문법이 shallow copy라고 하는 것 같음.
+
+---
+
+### 추가내용 2
+
+- 얕은 복사와 참조를 혼동 했던 것 같음
+  - objB = objA는 objA주소를 objB라는 변수에 넣은 것.
+  - 즉, objB와 objA는 완전히 같은 메모리 공간을 가리킴.
+
+<br>
+
+- 얕은복사는, 말 그대로 다른 메모리 공간에 복사하는 것
+  - 단, 참조값 안에 참조값이 있다면 그 연결까지는 끊어내지 못함.
+
+<br>
+
+- 그래서 위 예시와 추가내용을 참고해서 결론을 내려보면
+  1. 스프레드 문법은 얕은 복사이고, 깊은 복사는 depths가 얼만큼 있건 모두 복사하는 것.
+     - 얕은 복사는 depths가 깊을 수록 모두 복사하지 못함(=참조값을 다 끊어내지 못함, 1depths 정도만 끊는 것 같음.)
+     - 왜냐하면 depth를 2까지 깊게 팠을 때, objF.name.first를 변경하면 objD.name.first까지 변경됐음.
