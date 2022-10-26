@@ -16,7 +16,7 @@
 
 - ReactNode가 ReactElement에 비해 원시타입이 포함된 더 큰 개념.
 - 즉, ReactNode와 ReactElement의 가장 큰 차이점은 `children에 원시타입을 허용하는가` 의 차이
-  - 허용한다면 ReactNode를, 허용하지 않는다면 ReactElement를 사용
+  - 허용한다면 `ReactNode`를, 허용하지 않는다면 `ReactElement`를 사용
 
 <br>
 
@@ -52,7 +52,7 @@ type ReactNode = ReactElement | string | number | ReactFragment | ReactPortal | 
 
 <br>
 
-- JSX.Element 타입은 ReactElement 를 상속받은 interface이며 별 차이가 없음
+- `JSX.Element` 타입은 ReactElement 를 상속받은 interface이며 별 차이가 없음
 
 <br>
 
@@ -62,14 +62,13 @@ type ReactNode = ReactElement | string | number | ReactFragment | ReactPortal | 
 type ReactChild = ReactElement | string | number;
 ```
 
-- ReactChild는 ReactElement 타입이 리액트 요소 객체만을 허용했다면, ReactChild 타입은 여기서 원시 타입까지는 허용하는 타입
+- ReactElement 타입이 리액트 요소 객체만을 허용했다면, ReactChild 타입은 여기서 원시 타입까지는 허용하는 타입
 - 즉 ReactNode > ReactChild > ReactElement
 
 <br>
 
 ![그래프](../screen/ReactNode_ReactElement_JSXElement.png)
 사진 출처는 아래 참고자료에 있음.
-
 <br>
 
 ### 참고자료
@@ -81,10 +80,6 @@ type ReactChild = ReactElement | string | number;
 [[React] ReactNode vs ReactElement vs ReactChild vs JSX.element](https://velog.io/@ahn0min/React-ReactNode-vs-ReactChild-vs-ReactElement-vs-JSX.element)
 
 [ReactNode, ReactChild, ReactElement 타입 비교](https://merrily-code.tistory.com/209)
-
-<br>
-
-### 아래 내용 확인 후, 내용 추가 및 수정
 
 [When to use JSX.Element vs ReactNode vs ReactElement?](https://stackoverflow.com/questions/58123398/when-to-use-jsx-element-vs-reactnode-vs-reactelement)
 
