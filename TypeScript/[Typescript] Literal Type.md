@@ -2,6 +2,8 @@
 
 ## key값은 string이 아닌 상수임.
 
+> 정정하자면 string이 아니라 Literal type.
+
 ```TSX
 <InputWrapper currColor={currColor} style={style}>
   <input
@@ -30,7 +32,7 @@ const InputWrapper = styled.div<{ currColor: string }>`
 ```
 
 - 이렇게 매겼을 때 당연히 에러가 발생했음.
-- 해당 currColor는 key값으로 사용되고 있는데 key값의 타입은 string이 아닌 상수였음
+- 해당 currColor는 key값으로 사용되고 있는데 key값의 타입은 string이 아닌 ~~`상수`~~ `(literal type)`이 였음
 - 그래서 keyof를 이용해서 key값을 불러와서 타입을 지정해줌.
 
 <br>
@@ -64,4 +66,33 @@ const InputWrapper = styled.div<{ currColor: keyof DefaultTheme['color'] }>`
 
 <br>
 
-- keyof typeof 확인 후 추가할 것.
+## literal type
+
+```TS
+const a = "Hello World"
+let b = "Hello World"
+const c: string = "Hello World"
+```
+
+- 위 세개의 변수 타입은 각각 다음과 같음
+
+```TS
+type HelloWorldType = "Hello World" // literal type
+
+let a: HelloWorldType = "Hello World" // ok
+a = "hahaha" // compile error: "hahaha"는 "Hello World"가 아니기 때문.
+```
+
+<br>
+
+### 참고자료
+
+[Keyof Type Operator](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
+
+[TypeScript에서 string key로 객체에 접근하기](https://soopdop.github.io/2020/12/01/index-signatures-in-typescript/#chip)
+
+- 예시 참고했음
+
+[Literal Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
+
+- 공식문서
