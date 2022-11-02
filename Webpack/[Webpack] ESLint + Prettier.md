@@ -297,8 +297,6 @@
 }
 ```
 
-### rules 적용
-
 ### 참고자료
 
 [ESLint로 소스 코드의 문제 찾기](https://www.daleseo.com/js-eslint/)  
