@@ -36,7 +36,7 @@ tsconfig.json
 }
 ```
 
-[tsconfig.json 컴파일 옵션 정리](https://geonlee.tistory.com/214)
+[tsconfig.json 컴파일 옵션 정리](https://geonlee.tistory.com/214)  
 [컴파일러 옵션 (Compiler Options)](https://typescript-kr.github.io/pages/compiler-options.html)
 
 <br>
@@ -92,8 +92,8 @@ tsconfig.json
 }
 ```
 
-[Next.js + TypeScript + ESLint + Prettier + 절대경로 + styled-components + Recoil + React Query 프로젝트 세팅](https://velog.io/@bjy100/Next.js-Next.js-TypeScript-ESLint-Prettier-%EC%A0%88%EB%8C%80%EA%B2%BD%EB%A1%9C-styled-components-Recoil-React-Query-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%B8%ED%8C%85)
-[ESLint 사용 시 React import문 생략하기](https://velog.io/@100pearlcent/ESLint-%EC%82%AC%EC%9A%A9-%EC%8B%9C-React-import%EB%AC%B8-%EC%83%9D%EB%9E%B5%ED%95%98%EA%B8%B0)
+[Next.js + TypeScript + ESLint + Prettier + 절대경로 + styled-components + Recoil + React Query 프로젝트 세팅](https://velog.io/@bjy100/Next.js-Next.js-TypeScript-ESLint-Prettier-%EC%A0%88%EB%8C%80%EA%B2%BD%EB%A1%9C-styled-components-Recoil-React-Query-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%B8%ED%8C%85)  
+[ESLint 사용 시 React import문 생략하기](https://velog.io/@100pearlcent/ESLint-%EC%82%AC%EC%9A%A9-%EC%8B%9C-React-import%EB%AC%B8-%EC%83%9D%EB%9E%B5%ED%95%98%EA%B8%B0)  
 [ESLint의 no-unused-vars 규칙과 typescript 인터페이스 충돌 해결!](https://blog.pumpkin-raccoon.com/79)
 
 <br>
@@ -109,14 +109,14 @@ const nextConfig = {
 module.exports = nextConfig;
 ```
 
-[NextJS Babel에서 SWC로 이사가기](https://kir93.tistory.com/entry/NextJS-Babel%EC%97%90%EC%84%9C-SWC%EB%A1%9C-%EC%9D%B4%EC%82%AC%EA%B0%80%EA%B8%B0)
+[NextJS Babel에서 SWC로 이사가기](https://kir93.tistory.com/entry/NextJS-Babel%EC%97%90%EC%84%9C-SWC%EB%A1%9C-%EC%9D%B4%EC%82%AC%EA%B0%80%EA%B8%B0)  
 [next js 공식문서 swc styled components 적용](https://nextjs.org/docs/advanced-features/compiler#styled-components)
 
 <br>
 
 ### 그 외 참고자료
 
-[나만의 포트폴리오 제작기](https://velog.io/@junghyeonsu/%EB%82%98%EB%A7%8C%EC%9D%98-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A0%9C%EC%9E%91%EA%B8%B0)
+[나만의 포트폴리오 제작기](https://velog.io/@junghyeonsu/%EB%82%98%EB%A7%8C%EC%9D%98-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EC%A0%9C%EC%9E%91%EA%B8%B0)  
 [Next.js + Typescript 초기세팅 하기](https://velog.io/@devstone/Next.js-Typescript-%EC%B4%88%EA%B8%B0%EC%84%B8%ED%8C%85-%ED%95%98%EA%B8%B0)
 
 <br>
