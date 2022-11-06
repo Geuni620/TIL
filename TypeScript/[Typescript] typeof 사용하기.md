@@ -56,7 +56,7 @@ type SideBarType = typeof SIDE_BAR_MENU_LIST[number];
 
 - 위 코드는 다음의 캡처사진처럼 타입을 매겨줌
 
-  ![객체 타입 빼오기](../../screen/typeof%EB%A1%9C%20%EA%B0%9D%EC%B2%B4%20%ED%83%80%EC%9E%85%20%EB%B9%BC%EC%98%A4%EA%B8%B0.png)
+![객체 타입 빼오기](../screen/typeof%EB%A1%9C%20%EA%B0%9D%EC%B2%B4%20%ED%83%80%EC%9E%85%20%EB%B9%BC%EC%98%A4%EA%B8%B0.png)
 
 <br>
 
@@ -66,7 +66,8 @@ type SideBarType = typeof SIDE_BAR_MENU_LIST[number]["menus"];
 ```
 
 - 위 코드는 다음의 캡처사진처럼 타입을 매겨줌
-  ![객체에서 특정 key값 타입 빼오기](../../screen/typeof%EC%97%90%20%ED%8A%B9%EC%A0%95%20key%EA%B0%92%EC%97%90%20%ED%95%B4%EB%8B%B9%ED%95%98%EB%8A%94%20%ED%83%80%EC%9E%85.png)
+
+![객체에서 특정 key값 타입 빼오기](../screen/typeof%EC%97%90%20%ED%8A%B9%EC%A0%95%20key%EA%B0%92%EC%97%90%20%ED%95%B4%EB%8B%B9%ED%95%98%EB%8A%94%20%ED%83%80%EC%9E%85.png)
 
 <br>
 
