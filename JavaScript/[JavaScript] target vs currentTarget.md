@@ -18,9 +18,14 @@ const onLogin = e => {
 ![target 차이점 비교](../screen/target%20vs%20currentTarget.png)
 
 - e.target은 **자식 요소**인 span을 리턴
-- e.currentTarget은 **부모 요소**인 button을 반환
+- e.currentTarget은 **자기 자신**인 button을 반환
 
 <br>
+
+좀 더 명확히 말하면,
+
+- **currentTarget은 이벤트 핸들러가 바인딩된 DOM 요소**
+- **target은 이벤트를 발생시킨 DOM 요소**
 
 ### 참고자료
 
