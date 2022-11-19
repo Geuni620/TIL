@@ -1,4 +1,4 @@
-# typescript
+# Typescript
 
 > Modal창에서 esc key를 누를 시 close 되도록 구현했음
 
@@ -51,15 +51,13 @@
   }, []);
 ```
 
-- div 태그안에는 onKeyDown, onKeyup event가 없음
-
-[[자바스크립트] 키보드 이벤트 (keydown/keyup)](https://www.daleseo.com/js-key-events/)
-
 <br>
+
+### 추가 수정
 
 - keyCode [deprecated](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) 되었음.
 
-KeyBoard Event 중 key의 [Escape](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values)를 사용했음
+* KeyBoard Event 중 key의 [Escape](https://developer.mozilla.org/en-US/docs/Web/API/UI_Events/Keyboard_event_key_values)를 사용했음
 
 ```TSX
   useEffect(() => {
@@ -71,3 +69,9 @@ KeyBoard Event 중 key의 [Escape](https://developer.mozilla.org/en-US/docs/Web/
 ```
 
 <br>
+
+### 참고자료
+
+[[자바스크립트] 키보드 이벤트 (keydown/keyup)](https://www.daleseo.com/js-key-events/)
+
+- keydown, keyup 이벤트 참고
