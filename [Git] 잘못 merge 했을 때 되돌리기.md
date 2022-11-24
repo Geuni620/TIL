@@ -36,3 +36,7 @@ git cherry-pick <가져오고 싶은 커밋ID>
 ### 참고자료
 
 [내가 원하는 commit만 merge 하고 싶을 때](https://novemberfirst.tistory.com/97)
+
+[[GIT] ⚡️ 원하는 commit 가져오기 (git cherry-pick)](https://inpa.tistory.com/entry/GIT-%E2%9A%A1%EF%B8%8F-%EC%9B%90%ED%95%98%EB%8A%94-commit-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0-cherry-pick)
+
+- 여러 개 가져오기
