@@ -33,6 +33,15 @@ git cherry-pick <가져오고 싶은 커밋ID>
 
 - hotfit 기준으로 cherry-pick을 이용해 가져오고 싶은 commit을 하나씩 가져온 후 PR 작성해서 문제를 해결할 수 있었음.
 
+<br>
+
+```
+git cherry-pick <commit-A>^..<commit-B>
+```
+
+- PR을 보내기 전 작업공간에서 필요한 commit만 merge 하고 싶을 경우, cherry-pick을 사용함
+  - 위 코드는 commitA - commitB까지 원하는 범위를 설정해서 가져올 수 있음.
+
 ### 참고자료
 
 [내가 원하는 commit만 merge 하고 싶을 때](https://novemberfirst.tistory.com/97)
