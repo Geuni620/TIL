@@ -38,7 +38,7 @@ export default Test;
   - 그래서 isPending이 true라면 '로딩중', false일 경우 'div 만 개 표출'로 조건문을 걸어줄 수 있음.
 
 ```JSX
-import React, { useS tate, useTransition } from 'react';
+import React, { useState, useTransition } from 'react';
 
 const Test = () => {
   const [name, setName] = useState('');
@@ -95,7 +95,7 @@ const Test = () => {
 - [이 블로그](https://academind.com/tutorials/react-usetransition-vs-usedeferredvalue)에서는 useTransition은 상태 업데이트 코드를 래핑
 - useDefferedValue는 상태 업데이트의 영향을 받은 값을 래핑한다는 점이 큰 차이점이라고 말함.
 - 즉, 같은 목표를 달성하므로 두 가지를 함께 사용할 필요가 없으며, 함께 사용하지 말라고 제시함.
-- useTranstion은 상태 제어가 가능할 때 사용하기, props에서 값에만 접근이 가능한 경우엔 useDefferedValue를 사용하면 좋을 것 같음
+- useTransition은 상태 제어가 가능할 때 사용하기, props에서 값에만 접근이 가능한 경우엔 useDefferedValue를 사용하면 좋을 것 같음
   - 해당내용은 [이 블로그 글](https://yrnana.dev/post/2022-04-12-react-18)을 인용했음
   - [이 영상](https://youtu.be/lDukIAymutM)에서도 똑같이 말함.
 
