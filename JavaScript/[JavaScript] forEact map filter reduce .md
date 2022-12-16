@@ -2,7 +2,7 @@
 
 > 4개의 메서드는 정말 많이 이용하는데 어떻게 동작하는지 원리를 공부할 기회가 있어서 작성함.
 
-### 1. forEact
+### 1. forEach
 
 ```JS
 function forEach(predicate, thisArg) {
