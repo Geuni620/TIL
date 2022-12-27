@@ -48,9 +48,6 @@ const createRacingCar = (racingCar) => {
   DOM.RACING_CAR_RENDER_SECTION.appendChild(createdRacingCar);
 ```
 
-- 이렇게 만들긴 했는데, N회 렌더링을 개선한게 맞는지 헷갈림.
-- 리뷰받고 내용 추가할 것.
-
 <br>
 
 ### 참고자료

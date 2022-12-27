@@ -1,6 +1,6 @@
 # React
 
-## debounce vs cleanup vs useEffect
+## debounce vs useEffect
 
 > 복사를 눌렀을 때 setTimeout으로 "복사가 되었습니다."는 문구를 보여주고 싶은데,  
 > 5번 연속으로 눌렀다가 1초 후 1번 누르면 원하는대로 동작하지 않음
@@ -17,6 +17,8 @@
 
 <br>
 
+### Debounce
+
 ```TSX
 const timerIdRef = useRef<NodeJS.Timeout>();
 const [isUrlCopy, setIsUrlCopy] = useState(false);
@@ -32,6 +34,10 @@ timerIdRef.current = setTimeout(() => {
 ```
 
 <br>
+
+### useEffect
+
+> 테오 대화방에서 답변받은 내용을 인용.
 
 ```TSX
 const [lastClickTime, setLastClickTime] = useState<number | null>(null);
@@ -76,5 +82,8 @@ const useModeWithDelay = () => {
 
   return { isMode, startMode };
 };
-
 ```
+
+- 당시엔 ref를 사용해서 해결했음.
+- 장 단점이 있다고 생각했는데, Ref를 사용하게 되면 DOM을 직접적으로 조작하는 것이니, state로 가는게 낫지 않을까? 하는 고민이 들었었고,
+- useEffect를 이용해서 동작하도록 하는건 조금 복잡하지 않을까? 하는 고민이 들었던 거 같음.

@@ -113,7 +113,7 @@ export default CardContainerModal;
 ```
 
 - 네이밍을 명시적으로 변경했음, Single이라는 표현을 사용하지 않음.
-  - 사실 handleAllCheckedList라는 함수가 존재하는 페이지가 있는데, 여기는 All Check가 필요하진 않음
+  - 사실 handleAllCheckedList라는 함수가 존재하는 페이지가 있는데, 여기는 All Check가 필요하진 않음.
 - imagesMocking과 checkedList를 합쳐줬음
 
 <br>
@@ -323,3 +323,7 @@ export default photoAlbumIndexPages;
 ```
 
 <br>
+
+### 참고자료
+
+[(번역) 데이터 구조를 개선하여 코드 43% 줄이기](https://velog.io/@lky5697/react-junior-code-review-and-refactoring?utm_source=substack&utm_medium=email)
