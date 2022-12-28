@@ -11,7 +11,7 @@
 
 ![](/screen/Element%20InnerText.png)
 
-- innterText에 마우스를 올려보면 TS2339에러가 발생한 것을 확인할 수 있음.
+- innerText 마우스를 올려보면 TS2339에러가 발생한 것을 확인할 수 있음.
 - Element 형식에 innerText 속성이 없다는 에러를 확인.
 
 <br>
