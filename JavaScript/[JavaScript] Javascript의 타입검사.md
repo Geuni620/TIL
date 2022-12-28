@@ -92,6 +92,10 @@ console.log(Object.prototype.toString.call(func)); //[object Function]
 console.log(Object.prototype.toString.call(date)); //[object Date]
 ```
 
-[클린코드 자바스크립트 중 10.타입검사](https://www.udemy.com/course/clean-code-js/)
-[MDN, Object.prototype.toString()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
+<br>
+
+### 참고자료
+
+[클린코드 자바스크립트 중 10.타입검사](https://www.udemy.com/course/clean-code-js/)  
+[MDN, Object.prototype.toString()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)  
 [MDN, instanceof](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof)
