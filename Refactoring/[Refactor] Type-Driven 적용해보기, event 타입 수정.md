@@ -5,7 +5,7 @@
 - 변경 전에는 다음과 같았음.
 
 ```TSX
-// markup-data//user-manager.ts
+// markup-data/user-manager.ts
 interface Gender {
   id: number;
   name: string;
@@ -62,7 +62,7 @@ export interface VisaYear {
 }
 
 
-// type을 import 할 경우 type이라고 표현해주면 런타임시 빌드 되지 않음
+// type을 import 할 경우 type이라고 표현해주면 런타임시 빌드 되지 않음 (type-only imports/exports)
 import type { VisaYear } from 'markup_data/data-manager/user-manager';
 import { SELECTED_VISA_YEAR } from 'markup_data/data-manager/user-manager';
 
@@ -133,7 +133,9 @@ interface Event<T = EventTarget> {
   };
 ```
 
-- ChangeEvent나 MouseEvent로 변경
+- 리액트에서 이벤트 핸들러 타이핑은, 리액트의 이벤트 타입을 사용함
+- `onChange` 같은 경우는 `React.ChangeEvent<...>` 사용
+- 그래서 다음과 같이 수정했음
 
 ```TSX
 // 변경 후
@@ -141,6 +143,8 @@ interface Event<T = EventTarget> {
     const reader = new FileReader();
 
     reader.onload = () => {
+      //  'string | ArrayBuffer' 형식은 'string' 형식에 할당할 수 없습니다.
+      //  위와 같은 에러가 발생. → 타입가드로 해결.
       if (reader.result instanceof ArrayBuffer) return;
 
       setClosetItemInfo({
@@ -153,12 +157,6 @@ interface Event<T = EventTarget> {
 ```
 
 - 기존에는 타입단언을 사용하려 했지만, 타입가드로 사용하는게 더 낫겠다고 판단
-- 여기서 `ArrayBuffer`과 `instanceof`를 사용해봤음  
-  → typeof, interface 정리 필요함
-
-<br>
-
-### instanceof vs typeof
 
 <br>
 
@@ -167,3 +165,9 @@ interface Event<T = EventTarget> {
 [[TypeScript/3.8] 타입스크립트 3.8에서 바뀐 것들에 대하여](https://im-developer.tistory.com/187)
 
 - type import는 런타임시, 완전히 지워진다.
+
+[Type-Driven Development with Idris 리뷰](https://harfangk.github.io/2017/10/23/tdd-with-idris-review-ko.html)
+
+- 타입 주도 개발
+  - 코드를 읽거나 작성할 때 일단 정의된 타입과 함수의 타입 표기를 살펴보곤 한다.
+  - 타입 주도 개발은 그런 접근법을 정리하고 발전시킨 방식
