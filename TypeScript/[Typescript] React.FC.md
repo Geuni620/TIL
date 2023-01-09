@@ -82,8 +82,8 @@ const App: React.FC = () => {
 export default App;
 ```
 
-defaultProps를 지정해줬지만, Greeting 컴포넌트에선 Error가 발생함.
-![default Error](../screen/React.FC%20chilren%20default.png)
+defaultProps를 지정해줬지만, Greeting 컴포넌트에선 Error가 발생함.  
+![default Error](../screen/defaultProps%20error.png)
 
 <br>
 
