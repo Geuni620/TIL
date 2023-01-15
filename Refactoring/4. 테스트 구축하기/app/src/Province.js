@@ -1,4 +1,6 @@
-export class Province {
+import Producer from "./Producer";
+
+export default class Province {
   constructor(doc) {
     this._name = doc.name;
     this._producers = [];
@@ -8,12 +10,17 @@ export class Province {
     doc.producers.forEach((d) => this.addProducer(new Producer(this, d)));
   }
 
+  addProducer(arg) {
+    this._producers.push(arg);
+    this._totalProduction += arg.production;
+  }
+
   get name() {
     return this._name;
   }
 
-  get producer() {
-    return this._producers.slice();
+  get producers() {
+    return this._producers;
   }
 
   get totalProduction() {
@@ -40,21 +47,16 @@ export class Province {
     this._price = parseInt(arg);
   }
 
-  addProducer(arg) {
-    this._producers.push(arg);
-    this._totalProduction += arg.production;
-  }
-
   get shortfall() {
     return this._demand - this.totalProduction;
   }
 
   get profit() {
-    return this._demand - this.totalProduction.totalProduction;
+    return this.demandValue - this.demandCost;
   }
 
   get demandValue() {
-    return this.satisfiedDemand + this.price;
+    return this.satisfiedDemand * this.price;
   }
 
   get satisfiedDemand() {
@@ -68,44 +70,9 @@ export class Province {
       .sort((a, b) => a.cost - b.cost)
       .forEach((p) => {
         const contribution = Math.min(remainingDemand, p.production);
-
         remainingDemand -= contribution;
         result += contribution * p.cost;
       });
-
     return result;
-  }
-}
-
-export class Producer {
-  constructor(aProvince, data) {
-    this._province = aProvince;
-    this._cost = data.cost;
-    this._name = data.name;
-    this._production = data.production || 0;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  get cost() {
-    return this._cost;
-  }
-
-  set cost(arg) {
-    this._cost = parseInt(arg);
-  }
-
-  get Production() {
-    return this._production;
-  }
-
-  set Production(amountStr) {
-    const amount = parseInt(amountStr);
-    newProduction = Number.isNaN(amount) ? 0 : amount;
-
-    this._province.totalProduction += newProduction - this._production;
-    this._production = newProduction;
   }
 }

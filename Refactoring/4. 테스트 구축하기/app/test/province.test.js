@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {Province} from "../src/Province.js";
+import Province from "../src/Province";
 
 const sampleProvinceData = () => ({
   name: "Asia",
