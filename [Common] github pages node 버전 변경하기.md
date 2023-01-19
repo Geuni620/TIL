@@ -4,8 +4,6 @@
 
 ![node version error](./screen/node%20version%20error.png)
 
-<br>
-
 ```BASH
 name: CI
 on:
@@ -38,11 +36,9 @@ jobs:
           GITHUB_PAT: ${{ secrets.ACCESS_TOKEN }}
 ```
 
-node version을 보통 16.14.2로 사용하고 있었는데, 18이상만 최신 plugin을 사용할 수 있는 거 같아서 npm을 참고해서 가장 안전성 있다고 판단되는 버전으로 낮춰서 build 했었음.
-
-<br>
-
-근데 node version도 올리는 법을 찾아보니 stackover flow에 잘 적혀있었음.
+- node version을 보통 16.14.2로 사용하고 있었음,
+- gatsby plugin 설치할 때 18이상을 요구하는 Error 문구 발생.
+- node version도 올리는 법을 찾아보니 stackover flow에 잘 적혀있었음.
 
 <br>
 
