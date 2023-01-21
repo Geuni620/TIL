@@ -42,3 +42,5 @@ module.exports = {
 ### 참고자료
 
 [공식문서 gatsby-plugin-google-gtag](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/)
+
+[Gatsby Google Analytics 4.0 | Step-by-Step Guide Using Gtag Plugin](https://inspirezone.tech/gatsby-google-analytics-step-by-step-guide/)
