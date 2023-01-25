@@ -3,9 +3,9 @@
 ## Google Analytics Webpack error
 
 > google analytics를 블로그에 붙이기 위해 plugin으로 `gatsby-plugin-google-gtag`를 설치하고,  
->  타 블로그를 참고하여 적용하려 했으나 다음과 같은 에러가 발생.
+> 타 블로그를 참고하여 적용하려 했으나 다음과 같은 에러가 발생.
 
-![gatsby build error](./screen/gatsby%20bundle%20error.png)
+![gatsby build error](../screen/gatsby%20bundle%20error.png)
 
 [gatsby github issues](https://github.com/gatsbyjs/gatsby/issues)를 확인하며 webpack error라고 해서 덜컥 겁부터 냈음.
 
