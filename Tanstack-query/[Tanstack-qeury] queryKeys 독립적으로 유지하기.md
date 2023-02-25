@@ -61,7 +61,7 @@ export default useStayTimeQuery;
 <br>
 
 - 회사에서 queryKeys를 객체로 관리하고 있는데, 분명 다른 API를 호출하였으나, 같은 결과값이 리턴되었다.
-- 알고보니 , 쿼리키를 중복해서 사용하고 있었던 것, 개별적으로 queryKey를 지정해주니 정상적인 API 호출이 가능해짐.
+- 알고보니, 쿼리키를 중복해서 사용하고 있었던 것, 개별적으로 queryKey를 지정해주니 정상적인 API 호출이 가능해짐.
 
 <br>
 

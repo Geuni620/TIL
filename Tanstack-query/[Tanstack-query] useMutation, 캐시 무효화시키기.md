@@ -1,4 +1,6 @@
-### tanstack query
+# tanstack query
+
+### useMutation, 캐시 무효화시키기
 
 > useMutation으로 photo Delete 구현 중 캐시가 업데이트에 문제가 생김
 
@@ -42,7 +44,7 @@ delete 이후 데이터를 가져오면 캐시 무효화가 되지 않았음.
 
 <br>
 
-### 해결
+### 해결과정
 
 > 프론트 코드에는 이상 없었음.
 
