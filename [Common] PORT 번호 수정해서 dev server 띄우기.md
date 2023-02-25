@@ -1,4 +1,4 @@
-### next js PORT 번호 수정해서 dev server 띄우기
+### PORT 번호 수정해서 dev server 띄우기
 
 ```
 // PORT 3005
