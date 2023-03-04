@@ -30,12 +30,12 @@ export const useDeletePhotoListQuery = (): UseMutateFunction<
 <br>
 
 2번 photo를 삭제했으나,
-![2번 photo를 delete](../screen/tenstack-Query/delete.png)
+![2번 photo를 delete](../screen/delete.png)
 
 <br>
 
 delete 이후 데이터를 가져오면 캐시 무효화가 되지 않았음.
-![delete 이후 get해온 데이터](../screen/tenstack-Query/get%20%ED%95%B4%EC%98%A8%20%EC%9D%B4%ED%9B%84.png)
+![delete 이후 get해온 데이터](../screen/get%20%ED%95%B4%EC%98%A8%20%EC%9D%B4%ED%9B%84.png)
 
 - invalidateQueries가 정상적으로 동작하지 않음
   - photoData를 delete하는 버튼을 클릭하고 난 이후, invalidateQueries가 re-fetch 트리거를 거는 걸로 알고 있는데,
