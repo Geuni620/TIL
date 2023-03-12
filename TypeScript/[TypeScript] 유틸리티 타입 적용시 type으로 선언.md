@@ -13,5 +13,6 @@ interface IStacksData = Pick<OptionModel, 'STACKS'>; // 에러 발생
 
 ### 참고자료
 
-https://ithub.tistory.com/239  
-Partial, Required, Pick 사용방법
+[Partial, Required, Pick 사용방법](https://ithub.tistory.com/239)
+
+[타입스크립트 type과 interface의 공통점과 차이점](https://yceffort.kr/2021/03/typescript-interface-vs-type)
