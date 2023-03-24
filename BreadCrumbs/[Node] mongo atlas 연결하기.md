@@ -123,8 +123,40 @@ app.post("/add", (요청, 응답) => {
 
 ```
 npm install ejs
+
+// server.js 에서 아래부분을 추가해주어야함.
+app.set("view engine", "ejs")
 ```
 
-- ejs를 설치해보기
+<br>
 
-###
+### DB에 담겨진 데이터를 보여주기
+
+`<%=  변수이름 %>`과 같이 사용함.
+
+```HTML
+
+// view/list.ejs
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- 서버에서 가져온 할일 리스트 -->
+    <% for(let i = 0; i < posts.length; i++){ %>
+      <h4>할일 제목 : <%= posts[i].제목 %><h4>
+      <p>할일 마감날짜 : <%= posts[i].날짜 %></p>
+    <% } %>
+  </body>
+</html>
+```
+
+- 위와 같이 작성하면 다음과 같이 DB 데이터를 잘 뿌려줄 수 있음.
+- 즉, HTML안에서 서버데이터를 입력할 수 있음.
+- 단, EJS 파일은 꼭 views 폴더 안에 넣어줘야 함.
+
+```JS
+// /list로 get요청으로 접속하면, HTML 보여줌
+// 실제 DB에 저장된 데이터들로 예쁘게 꾸며진 HTML 보여줌.
+app.get("/list", (요청, 응답) => {
+  응답.render("list.ejs");
+});
+```
