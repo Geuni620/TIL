@@ -1,3 +1,7 @@
+# CSS
+
+### img태그는 ::before ::after 가상요소를 적용할 수 없음
+
 ```CSS
 const ProfileImageCircle = styled.div(() => [
   tw`relative cursor-pointer select-none `,
@@ -26,15 +30,12 @@ const ProfileImageCircle = styled.div(() => [
 ]);
 ```
 
-- 이게 왜 동작을 안하지,,,? 했는데 알고보니 img였다.
-- img는 가상요소를 넣을 수 없는 것 같음.
+### 참고자료
+
+[MDN ::before (:before)](https://developer.mozilla.org/ko/docs/Web/CSS/::before)
+
+- 참고: ::before와 ::after로 생성한 의사 요소는 원본 요소의 서식 박스에 포함되므로, <img>나 <br> 등 대체 요소에 적용할 수 없습니다.
 
 <br>
 
-### git stash drop 복구하기
-
-[git stash drop 시킨 변경사항 복구하기](https://h22y25n.github.io/git/restore-dropped-stash-on-git/)
-
-```
-git stash apply stash@{0}
-```
+[Does :before not work on img elements?](https://stackoverflow.com/questions/5843035/does-before-not-work-on-img-elements/5843164)
