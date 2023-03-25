@@ -121,37 +121,18 @@ app.post("/add", (요청, 응답) => {
 
 ### /list 방문하면 ejs 파일 보내기
 
-```
+```JS
 npm install ejs
 
 // server.js 에서 아래부분을 추가해주어야함.
 app.set("view engine", "ejs")
 ```
 
-<br>
-
-### DB에 담겨진 데이터를 보여주기
-
-`<%=  변수이름 %>`과 같이 사용함.
-
-```HTML
-
-// view/list.ejs
-<!DOCTYPE html>
-<html>
-  <body>
-    <!-- 서버에서 가져온 할일 리스트 -->
-    <% for(let i = 0; i < posts.length; i++){ %>
-      <h4>할일 제목 : <%= posts[i].제목 %><h4>
-      <p>할일 마감날짜 : <%= posts[i].날짜 %></p>
-    <% } %>
-  </body>
-</html>
-```
-
-- 위와 같이 작성하면 다음과 같이 DB 데이터를 잘 뿌려줄 수 있음.
-- 즉, HTML안에서 서버데이터를 입력할 수 있음.
+- 즉, ejs를 사용하면 HTML안에서 서버데이터를 입력할 수 있음.
+- `<%=  변수이름 %>`과 같이 사용함.
 - 단, EJS 파일은 꼭 views 폴더 안에 넣어줘야 함.
+
+<br>
 
 ```JS
 // /list로 get요청으로 접속하면, HTML 보여줌
@@ -160,3 +141,74 @@ app.get("/list", (요청, 응답) => {
   응답.render("list.ejs");
 });
 ```
+
+- localhost:8080/list에 접속하면 list.ejs에 작성한 HTML을 확인할 수 있음.
+
+<br>
+
+### DB에 담겨진 데이터를 보여주기
+
+```JS
+// /list로 get요청으로 접속하면, HTML 보여줌
+// 실제 DB에 저장된 데이터들로 예쁘게 꾸며진 HTML 보여줌.
+app.get("/list", (요청, 응답) => {
+  db.collection("post")
+    .find() // post에 있는 모든 데이터를 가져옴, 특정 하나만 가져오고 싶다면 findOne()
+    .toArray((에러, 결과) => {
+      console.log(결과);
+      /*
+      [
+        {  // 다음과 같이 DB에 저장된 데이터를 find().toArray()가 모두 가져와서 보여줌.
+          _id: 641f1cb48fb03732c7012b4a,
+          '제목': '백엔드 연습하기',
+          '날짜': '2023-03-26'
+        }
+      ]
+      */
+    });
+});
+```
+
+- db에 담겨진 데이터를 보여주기 위해선 다음과 같이 작성하면 됨.
+  - /list에 접속하면 db collection 중 "post"에 해당하는 모든 데이터를 console.log로 출력해줌
+
+<br>
+
+- 이걸 ejs에서 데이터를 뿌려주도록 해보자.
+
+```JS
+// server.js
+app.get("/list", (요청, 응답) => {
+  db.collection("post")
+    .find()
+    .toArray((에러, 결과) => {
+      console.log(결과);
+      응답.render("list.ejs", {posts: 결과}); // 결과를 posts로 내려줌.
+    });
+});
+```
+
+```HTML
+    서버에서 가져온 할일 리스트
+    <h4>할일 제목: <%= posts[0].제목 %></h4>
+    <h4>할일 마감날짜: <%= posts[0].날짜 %></h4>
+
+<!-- 반복문을 돌리고 싶다면, -->
+    <% for (let i = 0; i < posts.length; i ++) { %>
+    <h4>할일 제목: <%= posts[i].제목 %></h4>
+    <h4>할일 마감날짜: <%= posts[i].날짜 %></h4>
+    <% } %>
+```
+
+- 위와 같이 작성하면 HTML내에서 JS를 사용할 수 있음.
+- 결과적으로 다음과 같이 화면에 표현됨.
+
+<br>
+
+![list.ejs에 랜더링된 예시](./screen/list.ejs%20%EC%98%88%EC%8B%9C.png)
+
+<br>
+
+### 참고자료
+
+[Node.js, MongoDB로 2시간 만에 빠르게 웹서비스 만들기](https://codingapple.com/course/node-express-mongodb-server/)
