@@ -2,13 +2,13 @@
 
 ### DB에 id 설정해서 저장해주기
 
-![collection add](../screen/mongodb%20atlas%20collection%20add.png)
+![collection add](./screen/mongodb%20atlas%20collection%20add.png)
 
 - 위 스크린샷과 같이 hover 했을 때 '+' 버튼이 생긴다. 클릭한 후 counter collection을 추가해주었음
 
 <br>
 
-![counter collection 구성](../screen/counter%20collection%20%EA%B5%AC%EC%84%B1.png)
+!`[counter collection 구성](./screen/counter%20collection%20%EA%B5%AC%EC%84%B1.png)
 
 - counter collection은 id, totalPost, name로 구성했음
 - 게시물이 하나 추가될 때마다, totalPost가 +1씩 올라감
@@ -63,3 +63,9 @@ app.post("/add", (요청, 응답) => {
 ```
 
 - 코드의 위에 주석을 달아서 코드를 설명해두었음.
+
+<br>
+
+### 참고자료
+
+[Node.js, MongoDB로 2시간 만에 빠르게 웹서비스 만들기](https://codingapple.com/course/node-express-mongodb-server/)
