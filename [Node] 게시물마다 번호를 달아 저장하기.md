@@ -8,7 +8,7 @@
 
 <br>
 
-!`[counter collection 구성](./screen/counter%20collection%20%EA%B5%AC%EC%84%B1.png)
+[counter collection 구성](./screen/counter%20collection%20%EA%B5%AC%EC%84%B1.png)
 
 - counter collection은 id, totalPost, name로 구성했음
 - 게시물이 하나 추가될 때마다, totalPost가 +1씩 올라감
