@@ -58,7 +58,7 @@ setLastClickTime(new Date().getTime());
 <br>
 
 ```TSX
-const useModeWithDelay = () => {
+const useModeWithDelay = (delay=2000) => {
   const [modeStartTime, setModeStartTime] = useState<number>();
 
   useEffect(() => {
