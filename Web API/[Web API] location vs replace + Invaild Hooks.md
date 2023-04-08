@@ -93,7 +93,7 @@ Uncaught Error: Invalid hook call. Hooks can only be called inside of the body o
 
 <br>
 
-### Invaild Hooks
+### Invalid Hooks
 
 > 공식문서에서는 이 에러를 다음과 같은 상황에서 직면할 수 있다고 설명함.
 
@@ -146,5 +146,5 @@ https://velog.io/@___pepper/React-OAuth-2.0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
 AuthCodeLoginPage 부분 참고
 
 https://ko.reactjs.org/warnings/invalid-hook-call-warning.html  
-![Invaild warning](/screen/Invalid%20Hook%20Call%20Warning.png)  
+![Invalid warning](/screen/Invalid%20Hook%20Call%20Warning.png)  
 위 에러 메세지 참고
