@@ -50,15 +50,13 @@ const firebaseConfig = {
 <br>
 
 - Vite는 dotenv 패키지를 설치하지 않아도 됨
-- prefix를 `VITE_`로 적어주어야 함
+- **prefix를 `VITE_`로 적어주어야 함**
 - 앱에서는 `import.meta.env.`로 접근할 수 있음
 
 <br>
 
 ### 참고자료
 
-https://vitejs-kr.github.io/guide/env-and-mode.html#env-files  
-Vite 공식문서
+[Vite 공식문서](https://vitejs-kr.github.io/guide/env-and-mode.html#env-files)
 
-https://velog.io/@riley_dev/React-vite%EC%97%90%EC%84%9C-%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98-.env-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0  
-vite에서 환경변수 .env 설정하기
+[vite에서 환경변수 .env 설정하기](https://velog.io/@riley_dev/React-vite%EC%97%90%EC%84%9C-%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98-.env-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
