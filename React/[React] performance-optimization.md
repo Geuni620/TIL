@@ -41,7 +41,7 @@ export default Test1;
 
 <br>
 
-![useCallback 적용 전](./screen/useCallback%20%EC%A0%81%EC%9A%A9%20%EC%A0%84.png)
+![useCallback 적용 전](../screen/useCallback%20%EC%A0%81%EC%9A%A9%20%EC%A0%84.png)
 
 - 버튼 클릭해서 숫자를 올리면 그에 따른 console이 올린 숫자 값만큼 찍힘.
 
@@ -62,7 +62,7 @@ export default Test1;
 
 <br>
 
-![useCallback+의존배열빈값](./screen/useCallback%EC%A0%81%EC%9A%A9%20%ED%9B%84%20%EC%9D%98%EC%A1%B4%EB%B0%B0%EC%97%B4%20%EB%B9%84%EC%9B%80.png)
+![useCallback+의존배열빈값](../screen/useCallback%EC%A0%81%EC%9A%A9%20%ED%9B%84%20%EC%9D%98%EC%A1%B4%EB%B0%B0%EC%97%B4%20%EB%B9%84%EC%9B%80.png)
 
 <br>
 

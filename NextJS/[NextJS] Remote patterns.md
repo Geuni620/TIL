@@ -1,4 +1,4 @@
-# 블로그
+# nextJs
 
 ### Instagram blog image error
 
@@ -34,8 +34,6 @@ module.exports = nextConfig;
 - 하지만, 이미지 domain이 계속 변경될 때마다 추가해줘야할까,,,?
 
 <br>
-
-방법을 찾았다!
 
 ```
 const nextConfig = {
