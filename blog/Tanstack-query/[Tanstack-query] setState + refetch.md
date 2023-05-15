@@ -50,7 +50,7 @@
 
 - 위에서 언급했듯, 이렇게 적용하면 vscode 상에 await 밑줄이 생기고, 이를 클릭하면 아래와 같은 경고메시지가 뜬다.
 
-![setState + await](../screen/setState%20%2B%20await.png)
+![setState + await](../images/setState%20%2B%20await.png)
 
 - 하지만, 이상하게 이는 내가 원하는대로 동작한다. 단, 왜 이렇게 원하는대로 동작하는지는 아직 발견하지 못했다.
 
