@@ -138,3 +138,84 @@ docker exec -it react-app bash
 
 // 단 node_modules는 복사되어있는데, 이건 컨테이너 내부에서 npm install 한 결과임
 ```
+
+<br>
+
+### 코드 변경 후 컨테이너의 프로젝트 업데이트하기
+
+```
+// 기존 로컬 App.js를 업데이트한 후
+docker exec -it react-app bash
+cd src
+
+cat App.js
+// 코드가 업데이트 되지 않았음
+
+```
+
+<br>
+
+```
+// docker container 종료하기
+docker rm react-app -f
+
+// re-build → container 다시 만듦
+docker build -t react-image .
+docker run -d --name react-app -p 3000:3000 react-image
+```
+
+- 더 쉬운 솔루션이 필요함
+
+<br>
+
+### docker Volume & bind mount
+
+```
+// docker run -d --name <컨테이너 이름> -v <호스트 디렉토리>:<컨테이너 디렉토리> <이미지 이름>
+docker run -d --name react-app -v $(pwd)/src:/app/src -d -p 3000:3000 --name react-app react-image
+```
+
+- local dir과 docker container로 띄운 app dir를 동기화시킴
+
+<br>
+
+```
+docker exec -it react-app bash
+cd src/
+touch hello // 도커 컨테이너 내부에 파일을 만듦
+
+
+exit
+
+docker rm react-app -f // 그리고 hello 파일도 삭제할 것.
+```
+
+- 의도치 않게 컨테이너 환경에서 소스 코드를 수정할 수 있음.
+- 이 경우 도커 컨테이너에서 호스트를 수정하지 못하도록 읽기 전용 모드를 사용하면 양방향 Sync에서 호스트 → 컨테이너로 동기화 됨
+
+<br>
+
+```
+// :ro를 추가해서 읽기전용으로 만듦
+docker run -d --name react-app -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-app react-image
+
+exec -it react-app bash
+cd src
+touch hello // 에러 발생, touch: cannot touch 'hello': Read-only file system
+```
+
+<br>
+
+### docker Environment Variables
+
+- .env 파일로 설정
+
+```
+docker run --env-file ./.env -d --name react-app -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-app react-image
+```
+
+<br>
+
+### docker-compose
+
+`docker-compose.yml`
