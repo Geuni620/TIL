@@ -219,3 +219,59 @@ docker run --env-file ./.env -d --name react-app -v $(pwd)/src:/app/src:ro -d -p
 ### docker-compose
 
 `docker-compose.yml`
+
+```YML
+# docker 컨테이너 버전을 명시
+version: "3"
+
+# services는 컨테이너
+services:
+  react-app:
+    # 현재 경로에 이미지 빌드
+    build: .
+    # 포트 포워딩
+    ports:
+      - "3000:3000"
+    # 호스트 디렉토리에 바인드 마운트
+    volumes:
+      - ./src:/app/src:ro
+    # 환경 변수 설정
+    env_file:
+      - ./.env
+```
+
+<br>
+
+```
+// docker-compose.yml 명시된 모든 서비스 컨테이너를 생성하고 실행시켜주는 명령어
+docker-compose up -d
+
+// 모든 서비스 컨테이너를 한 번에 정지시키고 삭제한다.
+docker-compose down
+```
+
+<br>
+
+Dockerfile에 명시된 사항이 변경되었음
+
+```
+FROM node:18.15.0
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+ENV REACT_APP_NAME="Add text"
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+- 이 경우 docker-compose는 image를 다시 빌드하지 않는다.
+
+<br>
+
+- 새로운 ENV 속성이 추가 되었다는 것을 docker-compose에 알려주어야함.
+
+```
+
+
+```
