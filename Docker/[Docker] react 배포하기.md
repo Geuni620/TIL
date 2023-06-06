@@ -272,6 +272,103 @@ CMD ["npm", "start"]
 - 새로운 ENV 속성이 추가 되었다는 것을 docker-compose에 알려주어야함.
 
 ```
+docker-compose up -d --build
+```
 
+<br>
 
+### Production Environment
+
+- Dockerfile.dev와 Dockerfile.prod를 분리한다.
+- Dockerfile은 Dockerfile.dev로 이름을 변경한 후
+
+```
+// 다시 build 시켜준다.
+ docker build -f Dockerfile.dev .
+
+// docker-compose.yml
+# docker 컨테이너 버전을 명시
+version: "3"
+
+# services는 컨테이너
+services:
+  react-app:
+    # -it 옵션을 위해 사용됨 (표준입출력), 사용중인 도커파일의 경우 -it 넣는것과 같은 효과
+    # stdin_open: true
+    # tty: true
+    # 현재 경로에 이미지 빌드
+    <!-- 여기를 변경시켜줘야한다. -->
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # 포트 포워딩
+    ports:
+      - "3000:3000"
+    # 호스트 디렉토리에 바인드 마운트
+    volumes:
+      - ./src:/app/src:ro
+    # 환경 변수 설정
+    env_file:
+      - ./.env
+
+```
+
+<br>
+
+```
+// Dockerfile.dev
+FROM node:18.15.0
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+ENV REACT_APP_NAME="Add text"
+EXPOSE 3000
+CMD ["npm", "start"]
+
+// Dockerfile.prod
+FROM node:18.15.0 as build
+WORKDIR /app
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx
+COPY --from=build /app/build /usr/share/nginx/html
+```
+
+- 그리고 command에 다음과 같이 입력
+
+```
+docker build -f Dockerfile.prod -t docker-image-prod .
+```
+
+<br>
+
+```
+ docker run --env-file ./.env -d --name react-app -v -d -p 8000:80 --name react-app-prod docker-image-prod
+```
+
+- production server에 띄우고 나서는 해당 코드를 변경해도 코드가 변경되지 않는다.
+
+<br>
+
+```
+docker rm docker-image-prod
+```
+
+<br>
+
+###
+
+```
+// dev를 docker로 띄움
+ docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build
+
+ // dev를 down 시킴
+ docker-compose -f docker-compose.yml -f docker-compose-dev.yml down
+
+ // prod를 docker로 띄움
+  docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
 ```
