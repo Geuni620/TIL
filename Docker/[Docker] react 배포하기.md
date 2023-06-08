@@ -199,7 +199,7 @@ docker rm react-app -f // 그리고 hello 파일도 삭제할 것.
 // :ro를 추가해서 읽기전용으로 만듦
 docker run -d --name react-app -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-app react-image
 
-exec -it react-app bash
+docker exec -it react-app bash
 cd src
 touch hello // 에러 발생, touch: cannot touch 'hello': Read-only file system
 ```
