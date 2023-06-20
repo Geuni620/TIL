@@ -29,7 +29,7 @@ tsconfig.json
     },
     "noUnusedLocals": true, // 사용하지 않는 지역변수 에러보고 여부
     "noUnusedParameters": true, // 사용되지 않은 파라미터에 대한 에러보고 여부
-    "noImplicitAny": true // // any 타입으로 암시한 표현식과 선언에 오류를 발생시킴
+    "noImplicitAny": true // any 타입으로 암시한 표현식과 선언에 오류를 발생시킴
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
   "exclude": ["node_modules"]
