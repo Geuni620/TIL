@@ -123,7 +123,7 @@ module.exports = nextConfig;
 
 ### 그리고 발생한 에러
 
-![nextjs error](../screen/nextjs%20error.png)
+![nextjs error](./nextjs%20error.png)
 
 ```JSON
 // eslintrc.json
