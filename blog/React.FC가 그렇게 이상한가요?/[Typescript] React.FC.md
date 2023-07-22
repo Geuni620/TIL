@@ -37,8 +37,6 @@ type Props = {
 export const Greetings: React.FC<React.PropsWithChildren<Props>> = ({  }) => <div>{children}</div>;
 ```
 
-![React.FC default Children](../screen/React.FC%20chilren%20default.png)
-
 좀 더 표준적인 방법은 PropsWithChildren을 사용
 단, 제네릭이 겹칠수록 코드는 복잡해짐.
 
@@ -82,10 +80,7 @@ const App: React.FC = () => {
 export default App;
 ```
 
-defaultProps를 지정해줬지만, Greeting 컴포넌트에선 Error가 발생함.  
-![default Error](../screen/defaultProps%20error.png)
-
-<br>
+defaultProps를 지정해줬지만, Greeting 컴포넌트에선 Error가 발생함.
 
 ```TSX
 import React from "react";
