@@ -40,7 +40,7 @@ HTTP 표준 스펙이 바뀜, 위에 내용은 이전 스펙.
 
 ### 표현에 관련된 헤더들
 
-- Content-Type: 표현 데이터의 형식(Json?, XML?, html?)
+- Content-Type: 표현 데이터의 형식(json?, XML?, html?)
 - Content-Encoding: 표현 데이터의 압축 방식
 - Content-Language: 표현 데이터의 자연 언어(한국어인지, 영어인지 등등)
 - Content-Length: 표현 데이터의 길이
@@ -53,7 +53,7 @@ HTTP 표준 스펙이 바뀜, 위에 내용은 이전 스펙.
 
 - Content body에 들어가는 내용이 뭐야?
 - 예를 들어 html이 들어갔다고 가정하면 → `text/html`
-- Json이 들어갔다고 가정하면 → `application/json`
+- json이 들어갔다고 가정하면 → `application/json`
 - image/png 등등
 
 <br>
@@ -79,11 +79,6 @@ HTTP 표준 스펙이 바뀜, 위에 내용은 이전 스펙.
 - 표현데이터의 길이
 - 바이트 단위
 - Transfer-encoding(전송 코딩)을 사용하면 Content-Length를 사용하면 안됨
+  - 내용이 중복되기 때문, Transfer-encoding을 사용하면 Content-Length의 내용이 다 들어있음.
 
 <br>
-
-### 협상(콘텐츠 네고시에이션)
-
-> 클라이언트가 선호하는 표현 요청
-
-## Cache & 조건부 요청 Header
